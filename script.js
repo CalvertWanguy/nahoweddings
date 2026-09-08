@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   JavaScript: Music Player, Web Audio Synthesizer Fallback, Scroll Animations
+   JavaScript: Music Player, Web Audio Synth Fallback, Reveal Animations
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const observerOptions = {
     root: null,
-    rootMargin: '0px 0px -50px 0px',
-    threshold: 0.15
+    rootMargin: '0px 0px -40px 0px',
+    threshold: 0.1
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
   let audioCtx = null;
   let synthInterval = null;
 
-  // Web Audio Synthesizer for soothing romantic chord progression if MP3 isn't available
+  // Web Audio Synthesizer for ambient music
   function playAmbientSynthesizer() {
     if (!audioCtx) {
       const AudioContext = window.AudioContext || window.webkitAudioContext;
@@ -49,7 +49,6 @@ document.addEventListener('DOMContentLoaded', () => {
       audioCtx.resume();
     }
 
-    // F Major / D Minor romantic pentatonic chord notes (Hz)
     const notes = [261.63, 329.63, 392.00, 440.00, 523.25, 659.25];
 
     function triggerNote() {
@@ -61,7 +60,6 @@ document.addEventListener('DOMContentLoaded', () => {
       osc.type = 'sine';
       osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
 
-      // Soft envelope (slow attack and release)
       gain.gain.setValueAtTime(0, audioCtx.currentTime);
       gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 1.2);
       gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 4.5);
@@ -87,17 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Toggle Play / Pause
   if (musicBtn) {
     musicBtn.addEventListener('click', () => {
       if (!isPlaying) {
-        // Try playing HTML5 Audio element first
         if (bgAudio && bgAudio.src && bgAudio.src.length > 0) {
           bgAudio.play().then(() => {
             isPlaying = true;
             updateBtnState(true);
-          }).catch(err => {
-            console.log('Audio file play fallback to Web Audio Synth:', err);
+          }).catch(() => {
             isPlaying = true;
             playAmbientSynthesizer();
             updateBtnState(true);
@@ -119,10 +114,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateBtnState(playing) {
     if (playing) {
       musicBtn.classList.add('playing');
-      if (musicBtnText) musicBtnText.textContent = 'Pause';
+      if (musicBtnText) musicBtnText.textContent = 'PAUSE';
     } else {
       musicBtn.classList.remove('playing');
-      if (musicBtnText) musicBtnText.textContent = 'Jouer la musique';
+      if (musicBtnText) musicBtnText.textContent = 'JOUER LA MUSIQUE';
     }
   }
 

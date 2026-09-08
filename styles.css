@@ -1,37 +1,32 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Design: Elegant, Minimalist, Fine Serif, Champagne & Gold Accents
+   Design: Dual-Card Desktop Layout & Mobile Responsive matching reference image
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
 
 /* --- CSS Variables --- */
 :root {
-  --bg-canvas: #EFE9DF;
+  --bg-page: #EFE8DE;
   --bg-card: #FAF6EE;
-  --bg-card-alt: #F4ECE0;
+  --bg-card-alt: #F5EFE4;
 
-  --color-gold-main: #C5A059;
-  --color-gold-light: #E8D5B5;
+  --color-gold: #C5A059;
+  --color-gold-light: #EADCBF;
   --color-gold-dark: #8C6A1D;
-  --color-gold-sparkle: #FCE8B1;
-
-  --color-text-main: #33302E;
+  
+  --color-text: #2D2926;
   --color-text-muted: #6B6560;
-  --color-text-gold: #9C7B47;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', -apple-system, sans-serif;
 
-  --card-max-width: 460px;
-  --shadow-card: 0 25px 60px rgba(60, 48, 30, 0.15);
-  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
-
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  --shadow-card: 0 20px 50px rgba(55, 45, 30, 0.12);
+  --border-gold: 1px solid rgba(197, 160, 89, 0.3);
 }
 
-/* --- Global Reset & Page Setup --- */
+/* --- Global Reset --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -41,182 +36,226 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
 }
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-canvas);
-  color: var(--color-text-main);
+  background-color: var(--bg-page);
+  color: var(--color-text);
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0;
   margin: 0;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
   overflow-x: hidden;
-  line-height: 1.6;
 }
 
-/* Texture Pattern Overlay for Luxury Paper Feel */
+/* Subtle luxury paper texture */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: radial-gradient(#C5A059 0.5px, transparent 0.5px);
-  background-size: 24px 24px;
-  opacity: 0.06;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-image: radial-gradient(#C5A059 0.6px, transparent 0.6px);
+  background-size: 28px 28px;
+  opacity: 0.08;
   pointer-events: none;
   z-index: 1;
 }
 
-/* --- Main Card Wrapper (Mobile Viewport / Desktop Centered Card) --- */
-.invitation-card {
-  width: 100%;
-  max-width: var(--card-max-width);
-  background-color: var(--bg-card);
-  box-shadow: var(--shadow-card);
+/* Overall Header Banner (Like reference title "Wedding Invitation Website") */
+.page-header-title {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  color: var(--color-text-muted);
+  text-align: center;
+  margin-bottom: 30px;
   position: relative;
   z-index: 2;
+}
+
+.page-header-title span {
+  display: block;
+  font-size: 0.9rem;
+  font-family: var(--font-sans);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-gold-dark);
+  margin-top: 5px;
+}
+
+/* Main Site Container: Dual Cards on Desktop, Stacked on Mobile */
+.main-invitation-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  width: 100%;
+  max-width: 920px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Individual Card (Screen 1 & Screen 2) */
+.invitation-panel {
+  flex: 1;
+  width: 100%;
+  max-width: 440px;
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  border: var(--border-gold);
+  border-radius: 4px;
+  position: relative;
   overflow: hidden;
-  margin: 0 auto;
-  border-left: 1px solid rgba(197, 160, 89, 0.2);
-  border-right: 1px solid rgba(197, 160, 89, 0.2);
+  display: flex;
+  flex-direction: column;
 }
 
-@media (min-width: 500px) {
+/* On Mobile Screens: Stack Cards Vertically Seamlessly */
+@media (max-width: 880px) {
   body {
-    padding: 30px 15px;
+    padding: 15px 10px;
   }
-  .invitation-card {
-    border-radius: 12px;
-    border: 1px solid rgba(197, 160, 89, 0.3);
+  .page-header-title {
+    display: none; /* Hide header banner on mobile for clean full invitation view */
+  }
+  .main-invitation-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 440px;
+  }
+  .invitation-panel {
+    max-width: 100%;
   }
 }
 
-/* --- Reusable Floral & Gold Sparkle Decorations --- */
+/* Background Gold Dust */
+.gold-dust {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    radial-gradient(circle, rgba(197, 160, 89, 0.4) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(234, 220, 191, 0.6) 1.5px, transparent 2px);
+  background-size: 70px 70px, 110px 110px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Floral Graphics */
 .flower-decor {
   position: absolute;
   pointer-events: none;
   z-index: 3;
 }
 
-.flower-top-left {
+.flower-panel1-top {
   width: 220px;
   height: 220px;
   top: -40px;
-  left: -50px;
-  transform: rotate(-15deg);
+  right: -50px;
+  transform: rotate(20deg);
   opacity: 0.9;
 }
 
-.flower-mid-left {
-  width: 260px;
-  height: 260px;
-  top: 360px;
-  left: -90px;
-  transform: rotate(25deg);
-  opacity: 0.85;
-}
-
-.flower-top-venue {
+.flower-panel1-mid {
   width: 240px;
   height: 240px;
-  top: -60px;
-  right: -50px;
-  transform: rotate(45deg);
+  top: 260px;
+  left: -80px;
+  transform: rotate(-25deg);
   opacity: 0.85;
 }
 
-.flower-bottom-right {
+.flower-panel2-top {
+  width: 220px;
+  height: 220px;
+  top: -40px;
+  right: -50px;
+  transform: rotate(40deg);
+  opacity: 0.85;
+}
+
+.flower-panel2-mid {
   width: 200px;
   height: 200px;
-  bottom: 20px;
-  right: -60px;
-  transform: rotate(-30deg);
+  top: 480px;
+  left: -60px;
+  transform: rotate(-15deg);
   opacity: 0.8;
 }
 
-/* Gold Dust Particles */
-.gold-dust {
+/* Gold Vector Swirl Lines */
+.gold-swirl {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: 
-    radial-gradient(circle, rgba(212,175,55,0.6) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(232,213,181,0.8) 1.5px, transparent 2px);
-  background-size: 80px 80px, 120px 120px;
-  background-position: 0 0, 40px 40px;
-  opacity: 0.25;
   pointer-events: none;
+  opacity: 0.35;
 }
 
-/* --- Section Common Styles --- */
+/* Section Containers inside Panels */
 .section {
-  position: relative;
-  padding: 50px 30px;
+  padding: 40px 28px;
   text-align: center;
+  position: relative;
+  z-index: 4;
 }
 
 .section-title {
   font-family: var(--font-serif);
   font-size: 2.1rem;
   font-weight: 400;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-main);
-  margin-bottom: 12px;
-  position: relative;
+  color: var(--color-text);
+  margin-bottom: 10px;
 }
 
 .section-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 300;
   color: var(--color-text-muted);
   line-height: 1.6;
-  max-width: 320px;
-  margin: 0 auto 30px auto;
+  max-width: 300px;
+  margin: 0 auto 25px auto;
 }
 
 .gold-divider {
-  width: 60px;
+  width: 50px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, var(--color-gold-main), transparent);
-  margin: 15px auto 25px auto;
+  background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+  margin: 15px auto 20px auto;
 }
 
-/* --- SECTION 1: HERO / ACCUEIL --- */
-.hero-section {
-  padding-top: 65px;
-  padding-bottom: 40px;
-  min-height: 600px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+
+/* ==========================================================================
+   PANEL 1 — ACCUEIL & INVITATION (CARD 1)
+   ========================================================================== */
+
+/* Top Hero Area */
+.hero-area {
+  padding: 45px 25px 25px 25px;
+  text-align: center;
   position: relative;
 }
 
 .hero-date {
   font-family: var(--font-serif);
   font-size: 1.15rem;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.28em;
   color: var(--color-text-muted);
-  margin-bottom: 35px;
-  font-weight: 400;
+  margin-bottom: 30px;
 }
 
-/* Couple Names with Giant Ampersand */
-.names-container {
+/* Couple Names with Large Ampersand Overlay */
+.names-wrap {
   position: relative;
-  margin: 15px 0 25px 0;
-  width: 100%;
+  margin: 10px 0 20px 0;
 }
 
 .ampersand-bg {
@@ -225,123 +264,95 @@ body::before {
   left: 50%;
   transform: translate(-50%, -55%);
   font-family: var(--font-serif);
-  font-size: 11rem;
+  font-size: 10.5rem;
   font-weight: 300;
+  font-style: italic;
   color: var(--color-gold-light);
   opacity: 0.45;
   line-height: 1;
   pointer-events: none;
   user-select: none;
-  font-style: italic;
 }
 
 .name-line {
   font-family: var(--font-serif);
-  font-size: 3.4rem;
+  font-size: 3.3rem;
   font-weight: 400;
-  line-height: 1.15;
   letter-spacing: 0.05em;
-  color: var(--color-text-main);
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+  color: var(--color-text);
+  line-height: 1.15;
 }
 
 .wedding-day-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 300;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: var(--color-text-muted);
   margin-top: 15px;
   font-style: italic;
 }
 
-/* Music Player Button */
-.music-btn-wrapper {
-  margin: 35px 0 20px 0;
+/* --------------------------------------------------------------------------
+   MUSIC BUTTON — EXACT REPLICATE OF media_1788892708271.png
+   -------------------------------------------------------------------------- */
+.music-btn-container {
   display: flex;
   justify-content: flex-end;
-  width: 100%;
   padding-right: 25px;
+  margin: 25px 0 15px 0;
+  position: relative;
+  z-index: 5;
 }
 
 .music-btn {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(250, 246, 238, 0.85);
-  border: 1px solid rgba(197, 160, 89, 0.5);
-  padding: 10px 18px;
-  border-radius: 30px;
+  background-color: #FAF6EE;
+  border: 1px solid #C5A059;
+  padding: 5px 22px 5px 6px;
+  border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
-  transition: var(--transition-smooth);
-  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  outline: none;
 }
 
 .music-btn:hover {
-  background: #FFFFFF;
-  border-color: var(--color-gold-main);
-  transform: translateY(-2px);
+  background-color: #FFFFFF;
+  border-color: #8C6A1D;
+  transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(197, 160, 89, 0.2);
 }
 
 .music-icon-circle {
-  width: 32px;
-  height: 32px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  border: 1px solid var(--color-gold-main);
+  border: 1px solid #C5A059;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-gold-dark);
-  font-size: 0.9rem;
+  color: #8C6A1D;
+  font-size: 1.05rem;
+  background-color: #FAF6EE;
+  flex-shrink: 0;
 }
 
 .music-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--color-text-main);
+  font-size: 0.76rem;
   font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #33302E;
+  margin-left: 12px;
 }
 
-/* Sound Wave Bar Animation when active */
-.sound-bars {
-  display: none;
-  align-items: flex-end;
-  gap: 2px;
-  height: 14px;
-}
-
-.music-btn.playing .sound-bars {
-  display: flex;
-}
-
-.music-btn.playing .static-note {
-  display: none;
-}
-
-.sound-bar {
-  width: 2px;
-  background-color: var(--color-gold-main);
-  border-radius: 2px;
-  animation: soundWave 1.2s infinite ease-in-out alternate;
-}
-
-.sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
-.sound-bar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
-.sound-bar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
-
-@keyframes soundWave {
-  0% { height: 3px; }
-  100% { height: 14px; }
-}
-
-/* Satin Ribbon Graphic Separator */
+/* Ribbon Divider */
 .ribbon-divider {
   width: 100%;
-  height: 90px;
+  height: 80px;
   margin: -10px 0;
   position: relative;
   z-index: 4;
@@ -349,56 +360,49 @@ body::before {
 }
 
 /* Welcome Announcement Section */
-.welcome-section {
-  padding: 40px 32px 50px 32px;
-  position: relative;
+.welcome-area {
+  padding: 35px 28px 45px 28px;
 }
 
 .rings-icon-wrap {
   width: 48px;
   height: 38px;
-  margin: 0 auto 20px auto;
+  margin: 0 auto 15px auto;
 }
 
 .welcome-title {
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: 1.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-main);
-  margin-bottom: 20px;
+  color: var(--color-text);
+  margin-bottom: 15px;
   font-weight: 400;
 }
 
-.welcome-text {
+.welcome-paragraph {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 300;
   color: var(--color-text-muted);
-  line-height: 1.85;
-  margin-bottom: 22px;
-}
-
-.welcome-text p {
+  line-height: 1.8;
   margin-bottom: 16px;
 }
 
-/* Lorraine Photo Frame */
+/* Photo Frame Lorraine */
 .photo-frame-wrap {
-  margin: 30px auto;
+  margin: 25px auto;
   width: 100%;
-  max-width: 320px;
-  position: relative;
-  padding: 8px;
-  background: linear-gradient(135deg, #FFF, #FAF4E8);
-  border-radius: 16px;
-  box-shadow: 0 12px 35px rgba(80, 60, 30, 0.12);
-  border: 1px solid rgba(197, 160, 89, 0.4);
+  max-width: 300px;
+  padding: 7px;
+  background: linear-gradient(135deg, #FFFFFF, #F5EFE4);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(70, 50, 20, 0.1);
+  border: 1px solid rgba(197, 160, 89, 0.35);
 }
 
 .photo-frame-inner {
-  position: relative;
-  border-radius: 10px;
+  border-radius: 8px;
   overflow: hidden;
   width: 100%;
   aspect-ratio: 4/3;
@@ -409,73 +413,78 @@ body::before {
   height: 100%;
   object-fit: cover;
   display: block;
-  transition: transform 0.8s ease;
-}
-
-.photo-frame-wrap:hover .couple-photo {
-  transform: scale(1.03);
-}
-
-.photo-caption {
-  font-family: var(--font-serif);
-  font-size: 0.95rem;
-  font-style: italic;
-  color: var(--color-gold-dark);
-  margin-top: 10px;
-  letter-spacing: 0.08em;
 }
 
 /* Champagne Glasses Icon */
 .champagne-icon-wrap {
-  width: 44px;
-  height: 44px;
-  margin: 25px auto 0 auto;
+  width: 40px;
+  height: 40px;
+  margin: 20px auto 0 auto;
   opacity: 0.85;
 }
 
+/* Footer Monogram */
+.panel-footer {
+  padding: 20px;
+  text-align: center;
+  margin-top: auto;
+}
 
-/* --- SECTION 2: LIEU DE LA CÉLÉBRATION --- */
-.venue-section {
-  padding: 40px 0 50px 0;
+.footer-signature {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 0.2em;
+  color: var(--color-text);
+  font-style: italic;
+}
+
+
+/* ==========================================================================
+   PANEL 2 — LIEU, PROGRAMME & DRESS CODE (CARD 2)
+   ========================================================================== */
+
+/* Celebration Venue Section */
+.venue-area {
+  padding: 35px 0 45px 0;
+  background-color: var(--bg-card);
   position: relative;
-  background-color: var(--bg-card-alt);
 }
 
-.venue-header {
-  padding: 0 30px;
-  margin-bottom: 25px;
+.venue-title-wrap {
+  padding: 0 25px;
+  margin-bottom: 20px;
 }
 
-.venue-image-container {
+.venue-image-wrapper {
   position: relative;
   width: 100%;
-  height: 280px;
+  height: 250px;
   overflow: hidden;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .venue-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: sepia(0.2) contrast(1.05) brightness(0.95);
+  filter: sepia(0.18) contrast(1.05) brightness(0.95);
   display: block;
 }
 
-/* Arched Bottom Cutout on Venue Image */
-.venue-image-container::after {
+/* Arched Bottom Cut on Venue Image */
+.venue-image-wrapper::after {
   content: "";
   position: absolute;
   bottom: -2px;
   left: 0;
   width: 100%;
-  height: 35px;
+  height: 30px;
   background: var(--bg-card);
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
-/* Floating Open Map Button */
-.open-map-btn-wrap {
+/* Floating Round Map Button */
+.open-map-btn-container {
   position: absolute;
   bottom: -5px;
   left: 50%;
@@ -483,212 +492,175 @@ body::before {
   z-index: 5;
 }
 
-.open-map-link {
-  text-decoration: none;
-}
-
 .open-map-btn {
-  width: 85px;
-  height: 85px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: #FAF6EE;
-  border: 1px solid var(--color-gold-light);
-  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  border: 1px solid #C5A059;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: var(--transition-smooth);
+  transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .open-map-btn:hover {
   transform: scale(1.06);
-  border-color: var(--color-gold-main);
   background: #FFFFFF;
-  box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3);
+  border-color: #8C6A1D;
+  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.25);
 }
 
-.map-pin-icon {
-  width: 20px;
-  height: 20px;
+.map-pin-svg {
+  width: 18px;
+  height: 18px;
   color: var(--color-gold-dark);
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
-.open-map-text {
+.open-map-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--color-text-main);
+  color: var(--color-text);
   font-weight: 500;
   text-align: center;
   line-height: 1.1;
 }
 
-/* --- SECTION 3: PROGRAMME / TIMELINE --- */
-.timeline-section {
-  padding: 50px 30px 60px 30px;
-  background-color: var(--bg-card);
-  position: relative;
+/* Timeline Section (Programme) */
+.timeline-area {
+  padding: 40px 25px;
+  background-color: var(--bg-card-alt);
 }
 
-.timeline-container {
+.timeline-list {
   position: relative;
-  max-width: 320px;
-  margin: 35px auto 0 auto;
-  padding-left: 30px;
+  max-width: 290px;
+  margin: 30px auto 0 auto;
+  padding-left: 28px;
 }
 
-/* Vertical Gold Line */
-.timeline-line {
+.timeline-vertical-line {
   position: absolute;
-  top: 15px;
-  bottom: 15px;
-  left: 10px;
+  top: 12px;
+  bottom: 12px;
+  left: 9px;
   width: 1px;
-  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold-main), var(--color-gold-light));
+  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold), var(--color-gold-light));
 }
 
-.timeline-item {
+.timeline-row {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 40px;
+  margin-bottom: 35px;
 }
 
-.timeline-item:last-child {
+.timeline-row:last-child {
   margin-bottom: 0;
 }
 
-/* Timeline Dot / Anchor */
-.timeline-dot {
+.timeline-bullet {
   position: absolute;
-  left: -25px;
-  width: 11px;
-  height: 11px;
+  left: -24px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background-color: var(--color-gold-main);
-  border: 2px solid var(--bg-card);
+  background-color: var(--color-gold);
+  border: 2px solid var(--bg-card-alt);
   box-shadow: 0 0 0 2px var(--color-gold-light);
 }
 
-.timeline-content {
+.timeline-row-content {
   display: flex;
   align-items: baseline;
-  gap: 20px;
+  gap: 18px;
   text-align: left;
 }
 
-.timeline-time {
+.timeline-hour {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: 2.1rem;
   font-weight: 400;
-  color: var(--color-text-main);
-  letter-spacing: 0.02em;
-  min-width: 90px;
+  color: var(--color-text);
+  min-width: 85px;
 }
 
-.timeline-desc {
+.timeline-label {
   font-family: var(--font-sans);
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 300;
   color: var(--color-text-muted);
-  letter-spacing: 0.05em;
 }
 
-/* --- SECTION 4: CODE VESTIMENTAIRE (DRESS CODE) --- */
-.dress-code-section {
-  padding: 50px 25px 60px 25px;
-  background-color: var(--bg-card-alt);
-  position: relative;
+/* Dress Code Section */
+.dress-code-area {
+  padding: 40px 20px 45px 20px;
+  background-color: var(--bg-card);
 }
 
-/* Color Swatches Grid */
-.swatches-grid {
+/* Swatches Row matching reference image rectangles */
+.swatches-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 8px;
-  max-width: 380px;
-  margin: 30px auto 15px auto;
+  gap: 6px;
+  max-width: 360px;
+  margin: 25px auto 12px auto;
 }
 
-.swatch-item {
+.swatch-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
-.swatch-color {
+.swatch-rect {
   width: 100%;
   aspect-ratio: 1/1;
-  border-radius: 4px;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.04);
 }
 
-.swatch-lavande { background-color: #DCD6ED; }
-.swatch-beige   { background-color: #E5D6C3; }
-.swatch-gris    { background-color: #C6C3BC; }
-.swatch-marron  { background-color: #6B4B38; }
-.swatch-rose    { background-color: #F2D5D5; }
-.swatch-bleu    { background-color: #D2E2F0; }
+.c-lavande { background-color: #DCD6ED; }
+.c-beige   { background-color: #E5D6C3; }
+.c-gris    { background-color: #C6C3BC; }
+.c-marron  { background-color: #6B4B38; }
+.c-rose    { background-color: #F2D5D5; }
+.c-bleu    { background-color: #D2E2F0; }
 
-.swatch-label {
+.swatch-title {
   font-family: var(--font-sans);
-  font-size: 0.65rem;
+  font-size: 0.62rem;
   color: var(--color-text-muted);
-  font-weight: 400;
   text-align: center;
-  line-height: 1.1;
 }
 
-/* Dress Silhouettes Graphic */
-.dresses-graphic-wrap {
+/* Gowns Silhouettes Graphic */
+.gowns-graphic-container {
   width: 100%;
-  max-width: 380px;
-  margin: 25px auto 0 auto;
+  max-width: 360px;
+  margin: 20px auto 0 auto;
 }
 
-.dresses-svg {
+.gowns-svg {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* --- FOOTER SECTION --- */
-.footer-section {
-  padding: 40px 20px 45px 20px;
-  background-color: var(--bg-card);
-  position: relative;
-  text-align: center;
-  border-top: 1px solid rgba(197, 160, 89, 0.2);
-}
-
-.footer-monogram {
-  font-family: var(--font-serif);
-  font-size: 1.6rem;
-  letter-spacing: 0.25em;
-  color: var(--color-text-main);
-  margin-bottom: 8px;
-  font-weight: 300;
-}
-
-.footer-tagline {
-  font-family: var(--font-sans);
-  font-size: 0.68rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-text-gold);
-}
-
-/* --- ANIMATIONS (Fade-in on scroll) --- */
+/* Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transform: translateY(25px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
 .reveal.active {
