@@ -1,124 +1,105 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="100%" height="100%">
   <defs>
-    <!-- Petal Soft Shading Gradients -->
+    <!-- Petal Gradient (Ultra Soft White & Champagne Cream) -->
     <radialGradient id="roseCore" cx="45%" cy="45%" r="55%">
-      <stop offset="0%" stop-color="#FFFDF7"/>
-      <stop offset="60%" stop-color="#F7F1E5"/>
-      <stop offset="85%" stop-color="#EBE0CF"/>
-      <stop offset="100%" stop-color="#D9C7AC"/>
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#FAF6F0"/>
+      <stop offset="85%" stop-color="#EFE5D6"/>
+      <stop offset="100%" stop-color="#DECDB5"/>
     </radialGradient>
 
-    <linearGradient id="petalShadow" x1="0%" y1="0%" x2="100%" y2="100%">
+    <radialGradient id="peonyPetal" cx="50%" cy="30%" r="70%">
       <stop offset="0%" stop-color="#FFFFFF"/>
-      <stop offset="70%" stop-color="#FAF5EC"/>
-      <stop offset="100%" stop-color="#E2D4C0"/>
-    </linearGradient>
+      <stop offset="70%" stop-color="#F5ECE0"/>
+      <stop offset="100%" stop-color="#E5D6C0"/>
+    </radialGradient>
 
-    <linearGradient id="goldLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Gold Accent Gradient -->
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#E8D5B7"/>
-      <stop offset="40%" stop-color="#C5A059"/>
-      <stop offset="80%" stop-color="#D4AF37"/>
+      <stop offset="50%" stop-color="#C5A059"/>
       <stop offset="100%" stop-color="#8C6A1D"/>
     </linearGradient>
 
-    <linearGradient id="greenLeafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#A3B19B"/>
-      <stop offset="50%" stop-color="#7A8B73"/>
-      <stop offset="100%" stop-color="#54644D"/>
+    <!-- Soft Green Leaf Gradient -->
+    <linearGradient id="sageLeaf" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B8C4B4"/>
+      <stop offset="50%" stop-color="#8D9C88"/>
+      <stop offset="100%" stop-color="#647360"/>
     </linearGradient>
 
-    <!-- Drop Shadows for 3D Depth -->
-    <filter id="petalDepth" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="1" dy="3" stdDeviation="3" flood-color="#57442A" flood-opacity="0.12"/>
-    </filter>
-
-    <filter id="goldGlow" x="-30%" y="-30%" width="160%" height="160%">
-      <feGaussianBlur stdDeviation="2" result="blur"/>
-      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    <!-- Shadow Filter for Realistic Flower Layers -->
+    <filter id="flowerSoftShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#4E3B21" flood-opacity="0.10"/>
     </filter>
   </defs>
 
-  <!-- BACKGROUND FOLIAGE (Eucalyptus & Gold Stems) -->
-  <g class="floral-foliage" filter="url(#petalDepth)">
-    <!-- Gold Sprig Top Left -->
-    <path d="M 260,260 Q 180,140 100,100" fill="none" stroke="url(#goldLeafGrad)" stroke-width="2.5"/>
-    <path d="M 100,100 C 90,80 120,90 125,110 Z" fill="url(#goldLeafGrad)"/>
-    <path d="M 130,120 C 110,110 135,135 150,135 Z" fill="url(#goldLeafGrad)"/>
-    <path d="M 170,150 C 150,130 180,160 190,165 Z" fill="url(#goldLeafGrad)"/>
+  <g class="blooming-bouquet" filter="url(#flowerSoftShadow)">
+    
+    <!-- BACKGROUND BOTANICAL LEAVES & STEMS -->
+    <g class="leaves">
+      <!-- Sage Green Leaves Top -->
+      <path d="M 280,240 Q 200,100 140,60 C 120,40 180,60 210,100 Z" fill="url(#sageLeaf)"/>
+      <path d="M 280,240 Q 360,100 440,70 C 460,50 400,70 360,110 Z" fill="url(#sageLeaf)"/>
+      
+      <!-- Gold Foil Sprigs -->
+      <path d="M 280,240 Q 420,180 520,160" fill="none" stroke="url(#goldAccent)" stroke-width="2"/>
+      <path d="M 520,160 C 500,140 530,145 535,165 Z" fill="url(#goldAccent)"/>
+      <path d="M 460,175 C 440,155 470,160 475,180 Z" fill="url(#goldAccent)"/>
+      
+      <!-- Bottom Leaf Cluster -->
+      <path d="M 280,240 Q 140,360 80,440 C 60,460 120,440 160,390 Z" fill="url(#sageLeaf)"/>
+      <path d="M 280,240 Q 380,380 440,480 C 460,500 420,450 370,400 Z" fill="url(#sageLeaf)"/>
+    </g>
 
-    <!-- Soft Eucalyptus Leaves Top Right -->
-    <path d="M 260,260 Q 380,140 480,120" fill="none" stroke="#7A8B73" stroke-width="2.2"/>
-    <circle cx="480" cy="120" r="14" fill="url(#greenLeafGrad)" opacity="0.85"/>
-    <circle cx="430" cy="140" r="18" fill="url(#greenLeafGrad)" opacity="0.9"/>
-    <circle cx="370" cy="170" r="22" fill="url(#greenLeafGrad)" opacity="0.9"/>
+    <!-- FLOWER HEAD 2: TOP RIGHT BLOOMING PEONY / ROSE BUD -->
+    <g class="secondary-flower" transform="translate(130, -60) scale(0.65)">
+      <circle cx="280" cy="240" r="90" fill="url(#peonyPetal)"/>
+      <path d="M 280,150 C 220,160 210,240 280,240 Z" fill="url(#roseCore)"/>
+      <path d="M 280,150 C 340,160 350,240 280,240 Z" fill="url(#roseCore)"/>
+      <path d="M 210,220 C 230,300 330,300 350,220 Z" fill="url(#peonyPetal)"/>
+    </g>
 
-    <!-- Gold Foil Botanical Leaf Stem Bottom Right -->
-    <path d="M 260,260 Q 380,380 460,440" fill="none" stroke="url(#goldLeafGrad)" stroke-width="3"/>
-    <path d="M 460,440 C 440,410 480,410 475,445 Z" fill="url(#goldLeafGrad)"/>
-    <path d="M 410,390 C 385,370 425,375 425,405 Z" fill="url(#goldLeafGrad)"/>
-    <path d="M 350,330 C 330,310 365,315 365,340 Z" fill="url(#goldLeafGrad)"/>
+    <!-- FLOWER HEAD 1: MAIN FULL-BLOOM GARDEN ROSE (Lush & Petal-Rich) -->
+    <g class="main-flower">
+      <!-- Outer Petals Ring -->
+      <path d="M 280,80 C 160,80 120,200 160,300 C 200,400 360,400 400,300 C 440,200 400,80 280,80 Z" fill="url(#roseCore)" opacity="0.98"/>
+      
+      <!-- Mid Petal Layers -->
+      <path d="M 280,110 C 190,110 160,200 200,280 C 240,360 320,360 360,280 C 400,200 370,110 280,110 Z" fill="url(#peonyPetal)"/>
+      
+      <!-- Petal Flaps (Layered Curving Petals) -->
+      <path d="M 280,110 C 180,180 200,320 280,340 Q 360,260 280,110 Z" fill="url(#roseCore)"/>
+      <path d="M 280,110 C 380,180 360,320 280,340 Q 200,260 280,110 Z" fill="url(#peonyPetal)"/>
+      <path d="M 170,220 C 220,350 340,350 390,220 Q 280,310 170,220 Z" fill="url(#roseCore)"/>
+      <path d="M 190,160 C 280,240 370,160 280,300 Q 190,220 190,160 Z" fill="url(#peonyPetal)"/>
 
-    <!-- Eucalyptus Leaf Stem Bottom Left -->
-    <path d="M 260,260 Q 160,360 110,450" fill="none" stroke="#7A8B73" stroke-width="2.5"/>
-    <circle cx="110" cy="450" r="16" fill="url(#greenLeafGrad)" opacity="0.85"/>
-    <circle cx="150" cy="400" r="20" fill="url(#greenLeafGrad)" opacity="0.9"/>
-    <circle cx="200" cy="340" r="24" fill="url(#greenLeafGrad)" opacity="0.95"/>
-  </g>
+      <!-- Rose Heart Cup Spiral -->
+      <path d="M 280,180 C 230,190 230,270 280,280 C 330,270 330,190 280,180 Z" fill="#FAF1E4"/>
+      <path d="M 280,195 C 245,200 245,255 280,260 C 315,255 315,200 280,195 Z" fill="#EFE0CB"/>
+      <path d="M 280,210 C 260,210 260,245 280,250 C 300,245 300,210 280,210 Z" fill="#E0C9AA"/>
 
-  <!-- BABY'S BREATH FLORETS (Gold & White Dots) -->
-  <g class="gypsophila" fill="#FFFDF7" stroke="url(#goldLeafGrad)" stroke-width="0.8">
-    <circle cx="140" cy="160" r="5"/>
-    <circle cx="125" cy="175" r="4"/>
-    <circle cx="155" cy="145" r="4.5"/>
+      <!-- Delicate Gold Petal Edgings -->
+      <path d="M 180,160 C 280,110 380,160 380,160" fill="none" stroke="url(#goldAccent)" stroke-width="1.2" opacity="0.6"/>
+      <path d="M 160,250 C 280,350 400,250 400,250" fill="none" stroke="url(#goldAccent)" stroke-width="1.2" opacity="0.6"/>
+    </g>
 
-    <circle cx="440" cy="200" r="5"/>
-    <circle cx="460" cy="215" r="4"/>
-    <circle cx="425" cy="225" r="4.5"/>
+    <!-- FLOWER HEAD 3: BOTTOM LEFT OPENING ROSEBUD -->
+    <g class="flower-bud" transform="translate(-80, 140) scale(0.55)">
+      <path d="M 280,160 C 220,180 200,280 280,320 C 360,280 340,180 280,160 Z" fill="url(#peonyPetal)"/>
+      <path d="M 240,200 C 220,240 340,240 320,200 Z" fill="url(#roseCore)"/>
+      <!-- Green Sepals wrapping bud -->
+      <path d="M 280,320 Q 220,260 210,200 Q 260,280 280,320 Z" fill="url(#sageLeaf)"/>
+      <path d="M 280,320 Q 340,260 350,200 Q 300,280 280,320 Z" fill="url(#sageLeaf)"/>
+    </g>
 
-    <circle cx="180" cy="430" r="5"/>
-    <circle cx="195" cy="445" r="4"/>
-    <circle cx="165" cy="415" r="4.5"/>
-  </g>
+    <!-- GOLD DUST PARTICLES -->
+    <g fill="url(#goldAccent)">
+      <circle cx="120" cy="120" r="3.5"/>
+      <circle cx="480" cy="380" r="4"/>
+      <circle cx="500" cy="140" r="3"/>
+      <circle cx="100" cy="360" r="3"/>
+    </g>
 
-  <!-- 3D WHITE ROSE BLOSSOM (Layered Silk Petals) -->
-  <g class="rose-head" filter="url(#petalDepth)">
-    <!-- Layer 1: Outermost Large Curved Guard Petals -->
-    <path d="M 260,260 C 140,160 140,50 260,40 C 380,50 380,160 260,260 Z" fill="url(#petalShadow)" opacity="0.96"/>
-    <path d="M 260,260 C 360,140 480,160 480,280 C 460,400 340,360 260,260 Z" fill="url(#roseCore)" opacity="0.95"/>
-    <path d="M 260,260 C 340,360 360,480 240,480 C 140,460 160,340 260,260 Z" fill="url(#petalShadow)" opacity="0.96"/>
-    <path d="M 260,260 C 160,340 40,320 40,200 C 60,80 180,140 260,260 Z" fill="url(#roseCore)" opacity="0.94"/>
-
-    <!-- Layer 2: Mid-Layer Voluminous Overlapping Petals -->
-    <path d="M 260,260 C 180,120 340,100 350,190 C 350,260 280,280 260,260 Z" fill="url(#roseCore)"/>
-    <path d="M 260,260 C 350,180 400,310 320,350 C 260,350 250,280 260,260 Z" fill="url(#petalShadow)"/>
-    <path d="M 260,260 C 320,350 190,400 160,300 C 160,240 230,240 260,260 Z" fill="url(#roseCore)"/>
-    <path d="M 260,260 C 180,310 110,190 190,140 C 240,140 250,230 260,260 Z" fill="url(#petalShadow)"/>
-
-    <!-- Layer 3: Inner Rose Cup Petals -->
-    <path d="M 260,260 C 200,160 310,150 310,210 C 310,260 280,270 260,260 Z" fill="url(#roseCore)"/>
-    <path d="M 260,260 C 310,200 340,290 280,310 C 240,300 245,260 260,260 Z" fill="url(#petalShadow)"/>
-    <path d="M 260,260 C 290,310 200,320 190,260 C 190,220 235,230 260,260 Z" fill="url(#roseCore)"/>
-    <path d="M 260,260 C 200,280 170,200 220,170 C 250,170 255,230 260,260 Z" fill="url(#petalShadow)"/>
-
-    <!-- Layer 4: Deep Rose Heart Center Spiral -->
-    <path d="M 260,260 C 220,200 290,190 290,230 C 290,260 270,270 260,260 Z" fill="#F0E3D0"/>
-    <path d="M 260,260 C 280,220 300,270 270,280 C 250,275 252,255 260,260 Z" fill="#E6D4BD"/>
-    <path d="M 260,260 C 265,230 235,240 240,265 C 245,275 255,270 260,260 Z" fill="#D9C2A3"/>
-
-    <!-- Delicate Petal Edge Gold Highlights -->
-    <path d="M 190,140 Q 260,110 350,190" fill="none" stroke="url(#goldLeafGrad)" stroke-width="1.2" opacity="0.65"/>
-    <path d="M 350,190 Q 400,310 320,350" fill="none" stroke="url(#goldLeafGrad)" stroke-width="1.2" opacity="0.6"/>
-    <path d="M 320,350 Q 190,400 160,300" fill="none" stroke="url(#goldLeafGrad)" stroke-width="1.2" opacity="0.65"/>
-    <path d="M 160,300 Q 110,190 190,140" fill="none" stroke="url(#goldLeafGrad)" stroke-width="1.2" opacity="0.6"/>
-  </g>
-
-  <!-- GOLD DUST SPARKLES AROUND FLOWER -->
-  <g fill="url(#goldLeafGrad)" stroke="none">
-    <circle cx="260" cy="18" r="3"/>
-    <circle cx="530" cy="260" r="3.5"/>
-    <circle cx="260" cy="540" r="3"/>
-    <circle cx="50" cy="260" r="3.5"/>
-    <polygon points="120,80 123,87 130,90 123,93 120,100 117,93 110,90 117,87"/>
-    <polygon points="460,460 463,467 470,470 463,473 460,480 457,473 450,470 457,467"/>
   </g>
 </svg>
