@@ -35,6 +35,9 @@
          =================================================================== -->
     <article class="invitation-panel">
       <div class="gold-dust"></div>
+      
+      <!-- Romantic Wedding Watermark Overlay -->
+      <div class="wedding-watermark-bg"></div>
 
       <!-- Flower Decoration Top Right -->
       <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-panel1-top">
@@ -43,23 +46,32 @@
       <section class="hero-area">
         <div class="hero-date reveal">05/12/26</div>
 
+        <!-- Couple Names with Editorial Offset & Centered Ampersand -->
         <div class="names-wrap reveal">
-          <span class="ampersand-bg">&amp;</span>
           <h1 class="name-line name-left">Nahomie</h1>
+          <span class="ampersand-symbol">&amp;</span>
           <h1 class="name-line name-right">Lovensky</h1>
         </div>
 
         <div class="wedding-day-subtitle reveal">Jour de mariage</div>
       </section>
 
-      <!-- Music Button (Exact replica of media_1788892708271.png) -->
+      <!-- Music Button (Perfect Round Circle matching reference image) -->
       <div class="music-btn-container reveal">
-        <button id="musicBtn" class="music-btn" aria-label="Jouer la musique">
-          <div class="music-icon-circle">
-            <span class="static-note">♪</span>
-          </div>
-          <span class="music-btn-text">JOUER LA MUSIQUE</span>
+        <button id="musicBtn" class="music-circle-btn" type="button" aria-label="Jouer la musique">
+          <span class="music-note-icon">♪</span>
+          <span class="music-btn-text">JOUER<br>LA MUSIQUE</span>
         </button>
+      </div>
+
+      <!-- Minimalist Luxury Scroll Hint -->
+      <div class="scroll-hint-container reveal">
+        <a href="#welcomeSection" class="scroll-hint-link" aria-label="Défiler pour découvrir">
+          <span class="scroll-hint-text">découvrir</span>
+          <svg class="scroll-arrow-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 9l6 6 6-6"/>
+          </svg>
+        </a>
       </div>
 
       <!-- Satin Ribbon Divider -->
@@ -68,7 +80,7 @@
       </div>
 
       <!-- Welcome Announcement Section -->
-      <section class="section welcome-area">
+      <section id="welcomeSection" class="section welcome-area">
         <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-panel1-mid">
 
         <div class="rings-icon-wrap reveal">
@@ -114,6 +126,7 @@
          =================================================================== -->
     <article class="invitation-panel">
       <div class="gold-dust"></div>
+      <div class="wedding-watermark-bg"></div>
 
       <!-- Celebration Venue Section -->
       <section class="section venue-area">
@@ -124,19 +137,21 @@
           <div class="gold-divider"></div>
         </div>
 
-        <!-- Venue Photo with Arched Bottom & Floating Map Pin Button -->
+        <!-- Venue Photo with Arched Bottom & Pulsing Bouncing Map Button -->
+        <!-- Venue Photo with Arched Bottom -->
         <div class="venue-image-wrapper reveal">
           <img src="lorraine.jpg" alt="La Lorraine — Lieu de célébration" class="venue-image">
+        </div>
 
-          <div class="open-map-btn-container">
-            <a href="https://maps.app.goo.gl/CtrxqJJHJ7duLLmz7" target="_blank" rel="noopener" class="open-map-btn" aria-label="Ouvrir la carte Google Maps">
-              <svg class="map-pin-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                <circle cx="12" cy="10" r="3"></circle>
-              </svg>
-              <span class="open-map-btn-text">OUVRIR<br>LA CARTE</span>
-            </a>
-          </div>
+        <!-- Floating Round Map Button ("OUVRIR LA CARTE") -->
+        <div class="open-map-btn-container reveal">
+          <a href="https://maps.app.goo.gl/CtrxqJJHJ7duLLmz7" target="_blank" rel="noopener" class="open-map-btn pulse-animation" aria-label="Ouvrir la carte Google Maps">
+            <svg class="map-pin-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+              <circle cx="12" cy="10" r="3"></circle>
+            </svg>
+            <span class="open-map-btn-text">OUVRIR<br>LA CARTE</span>
+          </a>
         </div>
       </section>
 

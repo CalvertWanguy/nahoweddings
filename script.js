@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ------------------------------------------------------------------------
-     2. LECTEUR AUDIO MP3 EXCLUSIF
+     2. LECTEUR AUDIO MP3 EXCLUSIF (Bouton Rond Parfait)
         Musique : Christina Perri - A Thousand Years (Piano/Cello Cover)
      ------------------------------------------------------------------------ */
   const musicBtn = document.getElementById('musicBtn');
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bgAudio.play().then(() => {
           isPlaying = true;
           musicBtn.classList.add('playing');
-          if (musicBtnText) musicBtnText.textContent = 'PAUSE';
+          if (musicBtnText) musicBtnText.innerHTML = 'PAUSE';
         }).catch(err => {
           console.error("Erreur lors de la lecture du fichier MP3:", err);
         });
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         bgAudio.pause();
         isPlaying = false;
         musicBtn.classList.remove('playing');
-        if (musicBtnText) musicBtnText.textContent = 'JOUER LA MUSIQUE';
+        if (musicBtnText) musicBtnText.innerHTML = 'JOUER<br>LA MUSIQUE';
       }
     });
   }
