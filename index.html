@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation de Mariage — Nahomie &amp; Lovensky</title>
+  <meta name="description" content="Nous sommes heureux de vous inviter à célébrer notre mariage le 05/12/26. Nahomie &amp; Lovensky.">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Audio Element for optional background music -->
+  <audio id="bgAudio" loop preload="auto">
+    <source src="wedding-music.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- Main Responsive Invitation Card Wrapper -->
+  <main class="invitation-card">
+
+    <!-- Gold Dust Particles Layer -->
+    <div class="gold-dust"></div>
+
+    <!-- ===================================================================
+         SECTION 1: ÉCRAN D'ACCUEIL / HERO & BIENVENUE
+         =================================================================== -->
+    <section class="section hero-section">
+      
+      <!-- Top Decorative Floral Illustration -->
+      <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-top-left">
+
+      <!-- Date -->
+      <div class="hero-date reveal">05/12/26</div>
+
+      <!-- Couple Names with Stylized Ampersand -->
+      <div class="names-container reveal">
+        <span class="ampersand-bg">&amp;</span>
+        <h1 class="name-line">Nahomie</h1>
+        <h1 class="name-line">Lovensky</h1>
+      </div>
+
+      <!-- Subtitle -->
+      <div class="wedding-day-subtitle reveal">Jour de mariage</div>
+
+      <!-- Interactive Music Button -->
+      <div class="music-btn-wrapper reveal">
+        <button id="musicBtn" class="music-btn" aria-label="Jouer la musique de fond">
+          <div class="music-icon-circle">
+            <span class="static-note">♪</span>
+            <div class="sound-bars">
+              <span class="sound-bar"></span>
+              <span class="sound-bar"></span>
+              <span class="sound-bar"></span>
+            </div>
+          </div>
+          <span class="music-btn-text">Jouer la musique</span>
+        </button>
+      </div>
+
+    </section>
+
+    <!-- Satin Ribbon Divider -->
+    <div class="ribbon-divider">
+      <img src="assets/satin-ribbon.svg" alt="Ruban en satin" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+    <!-- Section Bienvenue -->
+    <section class="section welcome-section">
+      
+      <!-- Flower Decor Middle Left -->
+      <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-mid-left">
+
+      <!-- Intertwined Rings Icon -->
+      <div class="rings-icon-wrap reveal">
+        <img src="assets/rings-icon.svg" alt="Alliances de mariage" style="width:100%; height:100%;">
+      </div>
+
+      <!-- Welcome Title -->
+      <h2 class="welcome-title reveal">Chers amis et famille,</h2>
+      <div class="gold-divider"></div>
+
+      <!-- Announcement Paragraphs -->
+      <div class="welcome-text reveal">
+        <p>
+          Nous sommes tellement heureux de vous inviter à partager l'un des jours les plus importants de notre vie. Votre amour et votre soutien comptent énormément pour nous, et nous avons hâte de célébrer ensemble ce nouveau chapitre.
+        </p>
+        <p>
+          Vous faites partie intégrante de notre histoire, et nous nous estimons si chanceux de commencer cette nouvelle étape entourés des personnes qui nous sont les plus chères.
+        </p>
+      </div>
+
+      <!-- Framed Photo Lorraine -->
+      <div class="photo-frame-wrap reveal">
+        <div class="photo-frame-inner">
+          <img src="lorraine.jpg" alt="Nahomie & Lovensky — La Lorraine" class="couple-photo">
+        </div>
+        <div class="photo-caption">Nahomie &amp; Lovensky</div>
+      </div>
+
+      <!-- Toasting Champagne Glasses Icon -->
+      <div class="champagne-icon-wrap reveal">
+        <img src="assets/champagne-icon.svg" alt="Verres de champagne" style="width:100%; height:100%;">
+      </div>
+
+    </section>
+
+    <!-- Satin Ribbon Divider -->
+    <div class="ribbon-divider" style="transform: scaleY(-1);">
+      <img src="assets/satin-ribbon.svg" alt="Ruban en satin" style="width:100%; height:100%; object-fit:cover;">
+    </div>
+
+
+    <!-- ===================================================================
+         SECTION 2: LIEU DE LA CÉLÉBRATION
+         =================================================================== -->
+    <section class="section venue-section">
+      
+      <!-- Floral Accent Top Right Venue -->
+      <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-top-venue">
+
+      <div class="venue-header reveal">
+        <h2 class="section-title">Lieu de la célébration</h2>
+        <div class="gold-divider"></div>
+      </div>
+
+      <!-- Venue Photo Container with Floating Open Map Button -->
+      <div class="venue-image-container reveal">
+        <img src="lorraine.jpg" alt="Lieu de la célébration — La Lorraine" class="venue-image">
+
+        <!-- Centered Round Button opening Google Maps -->
+        <div class="open-map-btn-wrap">
+          <a href="https://maps.app.goo.gl/CtrxqJJHJ7duLLmz7" target="_blank" rel="noopener" class="open-map-link">
+            <button class="open-map-btn" type="button" aria-label="Ouvrir la carte Google Maps">
+              <svg class="map-pin-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <span class="open-map-text">Ouvrir<br>la carte</span>
+            </button>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================================
+         SECTION 3: PROGRAMME / HORAIRE
+         =================================================================== -->
+    <section class="section timeline-section">
+      
+      <h2 class="section-title reveal">Programme</h2>
+      <p class="section-subtitle reveal">Nous avons prévu la matinée en pensant à votre confort.</p>
+      <div class="gold-divider"></div>
+
+      <!-- Timeline Chronologique -->
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+
+        <!-- 8h30 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-time">8h30</span>
+            <span class="timeline-desc">Arrivée des invités</span>
+          </div>
+        </div>
+
+        <!-- 9h00 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-time">9h00</span>
+            <span class="timeline-desc">Cérémonie</span>
+          </div>
+        </div>
+
+        <!-- 10h30 -->
+        <div class="timeline-item reveal">
+          <div class="timeline-dot"></div>
+          <div class="timeline-content">
+            <span class="timeline-time">10h30</span>
+            <span class="timeline-desc">Fin de la célébration</span>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================================
+         SECTION 4: CODE VESTIMENTAIRE (DRESS CODE)
+         =================================================================== -->
+    <section class="section dress-code-section">
+      
+      <h2 class="section-title reveal">Code vestimentaire</h2>
+      <p class="section-subtitle reveal">
+        Aidez-nous à créer l'ambiance de notre jour spécial en choisissant une tenue dans la palette de couleurs suggérée.
+      </p>
+      <div class="gold-divider"></div>
+
+      <!-- Palette Color Swatches Grid (Order: Lavande, Beige, Gris, Marron, Rose pâle, Bleu pâle) -->
+      <div class="swatches-grid reveal">
+        <div class="swatch-item">
+          <div class="swatch-color swatch-lavande"></div>
+          <span class="swatch-label">Lavande</span>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color swatch-beige"></div>
+          <span class="swatch-label">Beige</span>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color swatch-gris"></div>
+          <span class="swatch-label">Gris</span>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color swatch-marron"></div>
+          <span class="swatch-label">Marron</span>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color swatch-rose"></div>
+          <span class="swatch-label">Rose pâle</span>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-color swatch-bleu"></div>
+          <span class="swatch-label">Bleu pâle</span>
+        </div>
+      </div>
+
+      <!-- Dress Silhouettes Illustration -->
+      <div class="dresses-graphic-wrap reveal">
+        <img src="assets/dresses-code.svg" alt="Silhouettes de robes pour le dress code" class="dresses-svg">
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================================
+         PIED DE PAGE (FOOTER)
+         =================================================================== -->
+    <footer class="footer-section">
+      <img src="assets/white-flower.svg" alt="Fleur blanche" class="flower-decor flower-bottom-right">
+
+      <div class="footer-monogram reveal">N &amp; L</div>
+      <div class="footer-tagline reveal">Nahomie &amp; Lovensky — 05.12.2026</div>
+    </footer>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>

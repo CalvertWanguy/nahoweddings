@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320" width="100%" height="100%">
+  <defs>
+    <!-- Shading Filter for Realistic Dress Folds -->
+    <linearGradient id="shadeOver" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#000000" stop-opacity="0.15"/>
+      <stop offset="30%" stop-color="#FFFFFF" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#000000" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.25"/>
+    </linearGradient>
+
+    <!-- Dress 1: Lavande -->
+    <linearGradient id="gLavande" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EAE5F5"/>
+      <stop offset="50%" stop-color="#D9D2EC"/>
+      <stop offset="100%" stop-color="#BDB2D8"/>
+    </linearGradient>
+
+    <!-- Dress 2: Beige -->
+    <linearGradient id="gBeige" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5ECE1"/>
+      <stop offset="50%" stop-color="#E5D6C3"/>
+      <stop offset="100%" stop-color="#C5B198"/>
+    </linearGradient>
+
+    <!-- Dress 3: Gris -->
+    <linearGradient id="gGris" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DFDDD8"/>
+      <stop offset="50%" stop-color="#C6C3BC"/>
+      <stop offset="100%" stop-color="#9E9A92"/>
+    </linearGradient>
+
+    <!-- Dress 4: Marron -->
+    <linearGradient id="gMarron" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8C6752"/>
+      <stop offset="50%" stop-color="#6B4B38"/>
+      <stop offset="100%" stop-color="#4A3122"/>
+    </linearGradient>
+
+    <!-- Dress 5: Rose Pâle -->
+    <linearGradient id="gRose" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FCEAEA"/>
+      <stop offset="50%" stop-color="#F2D5D5"/>
+      <stop offset="100%" stop-color="#D9AEAE"/>
+    </linearGradient>
+
+    <!-- Dress 6: Bleu Pâle -->
+    <linearGradient id="gBleu" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#EBF3FA"/>
+      <stop offset="50%" stop-color="#D2E2F0"/>
+      <stop offset="100%" stop-color="#A7C4DE"/>
+    </linearGradient>
+
+    <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Group of 6 Dresses -->
+
+  <!-- DRESS 1: LAVANDE (Strapless Sweetheart Mermaid Gown) -->
+  <g transform="translate(10, 10)" filter="url(#softShadow)">
+    <!-- Body Silhouette -->
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/> <!-- Head -->
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/> <!-- Neck/Torso base -->
+    <!-- Gown -->
+    <path d="M 28,52 C 30,42 50,42 52,52 C 50,75 48,95 55,140 C 60,180 72,250 75,290 L 5,290 C 12,240 22,170 25,140 C 32,95 30,75 28,52 Z" fill="url(#gLavande)"/>
+    <!-- Fold Lines -->
+    <path d="M36,52 C 38,100 25,200 20,290 M44,52 C 42,110 55,210 60,290" stroke="#7E729C" stroke-width="0.8" opacity="0.4" fill="none"/>
+    <!-- Highlight Sheen -->
+    <path d="M38,55 C 39,80 41,140 40,285" stroke="#FFF" stroke-width="1.5" opacity="0.3" fill="none"/>
+  </g>
+
+  <!-- DRESS 2: BEIGE (One-Shoulder Grecian Flowing Gown) -->
+  <g transform="translate(106, 10)" filter="url(#softShadow)">
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/>
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/>
+    <!-- Gown with strap over left shoulder -->
+    <path d="M 28,42 C 35,40 50,55 52,58 C 49,80 47,100 56,150 C 63,190 73,250 78,290 L 3,290 C 10,240 20,180 24,150 C 31,100 30,75 28,42 Z" fill="url(#gBeige)"/>
+    <path d="M34,42 C 36,90 28,190 22,290 M46,58 C 43,120 54,200 62,290" stroke="#9A836B" stroke-width="0.8" opacity="0.4" fill="none"/>
+    <path d="M39,45 C 40,85 40,150 42,285" stroke="#FFF" stroke-width="1.5" opacity="0.35" fill="none"/>
+  </g>
+
+  <!-- DRESS 3: GRIS (Satin Slip Gown with Drape) -->
+  <g transform="translate(202, 10)" filter="url(#softShadow)">
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/>
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/>
+    <!-- Spaghetti straps -->
+    <line x1="32" y1="42" x2="34" y2="52" stroke="#9E9A92" stroke-width="1.5"/>
+    <line x1="48" y1="42" x2="46" y2="52" stroke="#9E9A92" stroke-width="1.5"/>
+    <!-- Gown -->
+    <path d="M 29,52 C 34,50 46,50 51,52 C 48,78 46,105 57,155 C 64,195 72,245 76,290 L 4,290 C 8,245 16,195 23,155 C 34,105 32,78 29,52 Z" fill="url(#gGris)"/>
+    <path d="M35,52 C 34,100 26,190 18,290 M45,52 C 44,115 52,205 58,290" stroke="#686560" stroke-width="0.8" opacity="0.4" fill="none"/>
+    <path d="M40,53 C 41,85 41,160 38,285" stroke="#FFF" stroke-width="1.5" opacity="0.35" fill="none"/>
+  </g>
+
+  <!-- DRESS 4: MARRON (High-Neck Column Elegance) -->
+  <g transform="translate(298, 10)" filter="url(#softShadow)">
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/>
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/>
+    <!-- Halter neck -->
+    <path d="M 35,40 C 37,36 43,36 45,40 L 50,54 C 47,80 46,108 54,160 C 60,200 68,250 72,290 L 8,290 C 12,250 20,200 26,160 C 34,108 33,80 30,54 Z" fill="url(#gMarron)"/>
+    <path d="M36,54 C 36,105 28,195 24,290 M44,54 C 44,115 50,205 54,290" stroke="#362217" stroke-width="0.8" opacity="0.5" fill="none"/>
+    <path d="M40,42 C 40,80 39,150 39,285" stroke="#E5C6B3" stroke-width="1.2" opacity="0.25" fill="none"/>
+  </g>
+
+  <!-- DRESS 5: ROSE PÂLE (Cowl Neck A-Line Gown) -->
+  <g transform="translate(394, 10)" filter="url(#softShadow)">
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/>
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/>
+    <line x1="30" y1="42" x2="32" y2="52" stroke="#D9AEAE" stroke-width="1.5"/>
+    <line x1="50" y1="42" x2="48" y2="52" stroke="#D9AEAE" stroke-width="1.5"/>
+    <!-- Soft Cowl neckline -->
+    <path d="M 28,52 Q 40,62 52,52 C 49,76 47,98 56,148 C 64,188 74,248 78,290 L 2,290 C 6,248 16,188 24,148 C 33,98 31,76 28,52 Z" fill="url(#gRose)"/>
+    <path d="M34,55 C 35,95 24,195 16,290 M46,55 C 44,115 54,200 62,290" stroke="#AC7D7D" stroke-width="0.8" opacity="0.4" fill="none"/>
+    <path d="M40,60 C 40,90 39,160 38,285" stroke="#FFF" stroke-width="1.5" opacity="0.4" fill="none"/>
+  </g>
+
+  <!-- DRESS 6: BLEU PÂLE (Halter Backless Flare Gown) -->
+  <g transform="translate(490, 10)" filter="url(#softShadow)">
+    <circle cx="40" cy="20" r="11" fill="#EADBC8"/>
+    <path d="M40,31 L40,55" stroke="#EADBC8" stroke-width="6" stroke-linecap="round"/>
+    <!-- Halter top -->
+    <path d="M 34,40 L 46,40 L 51,52 C 49,76 47,98 56,148 C 63,188 72,248 76,290 L 4,290 C 8,248 17,188 24,148 C 33,98 31,76 29,52 Z" fill="url(#gBleu)"/>
+    <path d="M35,52 C 36,95 26,195 18,290 M45,52 C 44,115 52,200 58,290" stroke="#6C8FA8" stroke-width="0.8" opacity="0.4" fill="none"/>
+    <path d="M40,45 C 40,85 39,160 38,285" stroke="#FFF" stroke-width="1.5" opacity="0.4" fill="none"/>
+  </g>
+</svg>

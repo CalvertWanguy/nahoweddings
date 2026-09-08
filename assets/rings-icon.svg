@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 80" width="100%" height="100%">
+  <defs>
+    <linearGradient id="ringGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF3D6"/>
+      <stop offset="40%" stop-color="#D4AF37"/>
+      <stop offset="70%" stop-color="#AA8222"/>
+      <stop offset="100%" stop-color="#F2DF99"/>
+    </linearGradient>
+    <filter id="ringGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-color="#544116" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+  <g filter="url(#ringGlow)" stroke="url(#ringGold)" stroke-width="4.5" fill="none">
+    <!-- Left Ring -->
+    <circle cx="38" cy="45" r="22"/>
+    <!-- Right Ring -->
+    <circle cx="62" cy="45" r="22"/>
+    <!-- Diamond Gem on Right Ring -->
+    <path d="M62,16 L67,23 L62,28 L57,23 Z" fill="url(#ringGold)" stroke="none"/>
+    <polygon points="62,14 65,19 62,24 59,19" fill="#FFFFFF" stroke="none"/>
+  </g>
+</svg>

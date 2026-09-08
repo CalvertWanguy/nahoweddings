@@ -1,0 +1,697 @@
+/* ==========================================================================
+   NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
+   Design: Elegant, Minimalist, Fine Serif, Champagne & Gold Accents
+   ========================================================================== */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500&display=swap');
+
+/* --- CSS Variables --- */
+:root {
+  --bg-canvas: #EFE9DF;
+  --bg-card: #FAF6EE;
+  --bg-card-alt: #F4ECE0;
+
+  --color-gold-main: #C5A059;
+  --color-gold-light: #E8D5B5;
+  --color-gold-dark: #8C6A1D;
+  --color-gold-sparkle: #FCE8B1;
+
+  --color-text-main: #33302E;
+  --color-text-muted: #6B6560;
+  --color-text-gold: #9C7B47;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, sans-serif;
+
+  --card-max-width: 460px;
+  --shadow-card: 0 25px 60px rgba(60, 48, 30, 0.15);
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* --- Global Reset & Page Setup --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-canvas);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0;
+  margin: 0;
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+/* Texture Pattern Overlay for Luxury Paper Feel */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: radial-gradient(#C5A059 0.5px, transparent 0.5px);
+  background-size: 24px 24px;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* --- Main Card Wrapper (Mobile Viewport / Desktop Centered Card) --- */
+.invitation-card {
+  width: 100%;
+  max-width: var(--card-max-width);
+  background-color: var(--bg-card);
+  box-shadow: var(--shadow-card);
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  margin: 0 auto;
+  border-left: 1px solid rgba(197, 160, 89, 0.2);
+  border-right: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+@media (min-width: 500px) {
+  body {
+    padding: 30px 15px;
+  }
+  .invitation-card {
+    border-radius: 12px;
+    border: 1px solid rgba(197, 160, 89, 0.3);
+  }
+}
+
+/* --- Reusable Floral & Gold Sparkle Decorations --- */
+.flower-decor {
+  position: absolute;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.flower-top-left {
+  width: 220px;
+  height: 220px;
+  top: -40px;
+  left: -50px;
+  transform: rotate(-15deg);
+  opacity: 0.9;
+}
+
+.flower-mid-left {
+  width: 260px;
+  height: 260px;
+  top: 360px;
+  left: -90px;
+  transform: rotate(25deg);
+  opacity: 0.85;
+}
+
+.flower-top-venue {
+  width: 240px;
+  height: 240px;
+  top: -60px;
+  right: -50px;
+  transform: rotate(45deg);
+  opacity: 0.85;
+}
+
+.flower-bottom-right {
+  width: 200px;
+  height: 200px;
+  bottom: 20px;
+  right: -60px;
+  transform: rotate(-30deg);
+  opacity: 0.8;
+}
+
+/* Gold Dust Particles */
+.gold-dust {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(circle, rgba(212,175,55,0.6) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(232,213,181,0.8) 1.5px, transparent 2px);
+  background-size: 80px 80px, 120px 120px;
+  background-position: 0 0, 40px 40px;
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* --- Section Common Styles --- */
+.section {
+  position: relative;
+  padding: 50px 30px;
+  text-align: center;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: 2.1rem;
+  font-weight: 400;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.section-subtitle {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  max-width: 320px;
+  margin: 0 auto 30px auto;
+}
+
+.gold-divider {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-gold-main), transparent);
+  margin: 15px auto 25px auto;
+}
+
+/* --- SECTION 1: HERO / ACCUEIL --- */
+.hero-section {
+  padding-top: 65px;
+  padding-bottom: 40px;
+  min-height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.hero-date {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  letter-spacing: 0.3em;
+  color: var(--color-text-muted);
+  margin-bottom: 35px;
+  font-weight: 400;
+}
+
+/* Couple Names with Giant Ampersand */
+.names-container {
+  position: relative;
+  margin: 15px 0 25px 0;
+  width: 100%;
+}
+
+.ampersand-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: var(--font-serif);
+  font-size: 11rem;
+  font-weight: 300;
+  color: var(--color-gold-light);
+  opacity: 0.45;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  font-style: italic;
+}
+
+.name-line {
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: 0.05em;
+  color: var(--color-text-main);
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.8);
+}
+
+.wedding-day-subtitle {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  color: var(--color-text-muted);
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* Music Player Button */
+.music-btn-wrapper {
+  margin: 35px 0 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding-right: 25px;
+}
+
+.music-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(250, 246, 238, 0.85);
+  border: 1px solid rgba(197, 160, 89, 0.5);
+  padding: 10px 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+  transition: var(--transition-smooth);
+  backdrop-filter: blur(5px);
+}
+
+.music-btn:hover {
+  background: #FFFFFF;
+  border-color: var(--color-gold-main);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.2);
+}
+
+.music-icon-circle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--color-gold-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-gold-dark);
+  font-size: 0.9rem;
+}
+
+.music-btn-text {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  font-weight: 400;
+}
+
+/* Sound Wave Bar Animation when active */
+.sound-bars {
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  height: 14px;
+}
+
+.music-btn.playing .sound-bars {
+  display: flex;
+}
+
+.music-btn.playing .static-note {
+  display: none;
+}
+
+.sound-bar {
+  width: 2px;
+  background-color: var(--color-gold-main);
+  border-radius: 2px;
+  animation: soundWave 1.2s infinite ease-in-out alternate;
+}
+
+.sound-bar:nth-child(1) { height: 6px; animation-delay: 0.1s; }
+.sound-bar:nth-child(2) { height: 12px; animation-delay: 0.3s; }
+.sound-bar:nth-child(3) { height: 8px; animation-delay: 0.2s; }
+
+@keyframes soundWave {
+  0% { height: 3px; }
+  100% { height: 14px; }
+}
+
+/* Satin Ribbon Graphic Separator */
+.ribbon-divider {
+  width: 100%;
+  height: 90px;
+  margin: -10px 0;
+  position: relative;
+  z-index: 4;
+  pointer-events: none;
+}
+
+/* Welcome Announcement Section */
+.welcome-section {
+  padding: 40px 32px 50px 32px;
+  position: relative;
+}
+
+.rings-icon-wrap {
+  width: 48px;
+  height: 38px;
+  margin: 0 auto 20px auto;
+}
+
+.welcome-title {
+  font-family: var(--font-serif);
+  font-size: 1.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.welcome-text {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+  margin-bottom: 22px;
+}
+
+.welcome-text p {
+  margin-bottom: 16px;
+}
+
+/* Lorraine Photo Frame */
+.photo-frame-wrap {
+  margin: 30px auto;
+  width: 100%;
+  max-width: 320px;
+  position: relative;
+  padding: 8px;
+  background: linear-gradient(135deg, #FFF, #FAF4E8);
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(80, 60, 30, 0.12);
+  border: 1px solid rgba(197, 160, 89, 0.4);
+}
+
+.photo-frame-inner {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4/3;
+}
+
+.couple-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s ease;
+}
+
+.photo-frame-wrap:hover .couple-photo {
+  transform: scale(1.03);
+}
+
+.photo-caption {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--color-gold-dark);
+  margin-top: 10px;
+  letter-spacing: 0.08em;
+}
+
+/* Champagne Glasses Icon */
+.champagne-icon-wrap {
+  width: 44px;
+  height: 44px;
+  margin: 25px auto 0 auto;
+  opacity: 0.85;
+}
+
+
+/* --- SECTION 2: LIEU DE LA CÉLÉBRATION --- */
+.venue-section {
+  padding: 40px 0 50px 0;
+  position: relative;
+  background-color: var(--bg-card-alt);
+}
+
+.venue-header {
+  padding: 0 30px;
+  margin-bottom: 25px;
+}
+
+.venue-image-container {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  margin-bottom: 35px;
+}
+
+.venue-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.2) contrast(1.05) brightness(0.95);
+  display: block;
+}
+
+/* Arched Bottom Cutout on Venue Image */
+.venue-image-container::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 35px;
+  background: var(--bg-card);
+  border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+}
+
+/* Floating Open Map Button */
+.open-map-btn-wrap {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+}
+
+.open-map-link {
+  text-decoration: none;
+}
+
+.open-map-btn {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: #FAF6EE;
+  border: 1px solid var(--color-gold-light);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.open-map-btn:hover {
+  transform: scale(1.06);
+  border-color: var(--color-gold-main);
+  background: #FFFFFF;
+  box-shadow: 0 12px 30px rgba(197, 160, 89, 0.3);
+}
+
+.map-pin-icon {
+  width: 20px;
+  height: 20px;
+  color: var(--color-gold-dark);
+  margin-bottom: 4px;
+}
+
+.open-map-text {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-text-main);
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* --- SECTION 3: PROGRAMME / TIMELINE --- */
+.timeline-section {
+  padding: 50px 30px 60px 30px;
+  background-color: var(--bg-card);
+  position: relative;
+}
+
+.timeline-container {
+  position: relative;
+  max-width: 320px;
+  margin: 35px auto 0 auto;
+  padding-left: 30px;
+}
+
+/* Vertical Gold Line */
+.timeline-line {
+  position: absolute;
+  top: 15px;
+  bottom: 15px;
+  left: 10px;
+  width: 1px;
+  background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold-main), var(--color-gold-light));
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+/* Timeline Dot / Anchor */
+.timeline-dot {
+  position: absolute;
+  left: -25px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--color-gold-main);
+  border: 2px solid var(--bg-card);
+  box-shadow: 0 0 0 2px var(--color-gold-light);
+}
+
+.timeline-content {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  text-align: left;
+}
+
+.timeline-time {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: var(--color-text-main);
+  letter-spacing: 0.02em;
+  min-width: 90px;
+}
+
+.timeline-desc {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+/* --- SECTION 4: CODE VESTIMENTAIRE (DRESS CODE) --- */
+.dress-code-section {
+  padding: 50px 25px 60px 25px;
+  background-color: var(--bg-card-alt);
+  position: relative;
+}
+
+/* Color Swatches Grid */
+.swatches-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 8px;
+  max-width: 380px;
+  margin: 30px auto 15px auto;
+}
+
+.swatch-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.swatch-color {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 4px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.swatch-lavande { background-color: #DCD6ED; }
+.swatch-beige   { background-color: #E5D6C3; }
+.swatch-gris    { background-color: #C6C3BC; }
+.swatch-marron  { background-color: #6B4B38; }
+.swatch-rose    { background-color: #F2D5D5; }
+.swatch-bleu    { background-color: #D2E2F0; }
+
+.swatch-label {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  font-weight: 400;
+  text-align: center;
+  line-height: 1.1;
+}
+
+/* Dress Silhouettes Graphic */
+.dresses-graphic-wrap {
+  width: 100%;
+  max-width: 380px;
+  margin: 25px auto 0 auto;
+}
+
+.dresses-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- FOOTER SECTION --- */
+.footer-section {
+  padding: 40px 20px 45px 20px;
+  background-color: var(--bg-card);
+  position: relative;
+  text-align: center;
+  border-top: 1px solid rgba(197, 160, 89, 0.2);
+}
+
+.footer-monogram {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  letter-spacing: 0.25em;
+  color: var(--color-text-main);
+  margin-bottom: 8px;
+  font-weight: 300;
+}
+
+.footer-tagline {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-text-gold);
+}
+
+/* --- ANIMATIONS (Fade-in on scroll) --- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
