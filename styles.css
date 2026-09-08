@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Mobile-First & Responsive CSS Design with Rich Prominent Gold Ampersand
+   Mobile-First & Responsive CSS Design with Top Header Banner Enabled on All Devices
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
@@ -69,7 +69,9 @@ body::before {
   z-index: 1;
 }
 
-/* Page Header Title (Visible on Desktop, hidden on Mobile) */
+/* --------------------------------------------------------------------------
+   PAGE HEADER TITLE BANNER — VISIBLE & STYLED ON MOBILE + DESKTOP
+   -------------------------------------------------------------------------- */
 .page-header-title {
   font-family: var(--font-serif);
   font-size: 2.5rem;
@@ -738,12 +740,21 @@ body::before {
    ========================================================================== */
 @media (max-width: 880px) {
   body {
-    padding: 0;
+    padding: 15px 0 0 0;
     background-color: var(--bg-card);
   }
 
+  /* Display top title banner elegantly on mobile */
   .page-header-title {
-    display: none;
+    display: block;
+    font-size: 1.85rem;
+    margin-bottom: 15px;
+    padding: 0 15px;
+  }
+
+  .page-header-title span {
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
   }
 
   .main-invitation-container {
