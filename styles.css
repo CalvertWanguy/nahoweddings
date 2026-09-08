@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Mobile-First & Responsive CSS Design with Perfect Floral Positioning & High-Legibility
+   Mobile-First & Responsive CSS Design with Soft Minimalist Hover Effects & Rich Accents
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
@@ -246,7 +246,7 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   COUPLE NAMES WITH STYLIZED AMPERSAND "&" MATCHING media_1788893448462.png
+   COUPLE NAMES WITH RICH VISIBLE STYLIZED AMPERSAND "&"
    -------------------------------------------------------------------------- */
 .names-wrap {
   position: relative;
@@ -260,16 +260,16 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-serif);
-  font-size: 8.5rem;
+  font-size: 8.8rem;
   font-weight: 300;
   font-style: italic;
-  color: #E2CFB4;
-  opacity: 0.58;
+  color: #D6C29E;
+  opacity: 0.82;
   line-height: 1;
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  text-shadow: 0 0 20px rgba(250, 246, 238, 0.8);
+  text-shadow: 0 2px 10px rgba(197, 160, 89, 0.15);
 }
 
 .name-line {
