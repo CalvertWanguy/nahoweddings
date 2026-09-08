@@ -142,7 +142,7 @@ body::before {
   background-repeat: repeat-y;
   background-position: center 40px;
   background-size: 380px auto;
-  opacity: 0.19; /* Perfectly balanced pale & visible wedding arch watermark */
+  opacity: 0.28; /* Perfectly balanced & clearly recognizable wedding arch & couple watermark */
   pointer-events: none;
   z-index: 1;
 }
