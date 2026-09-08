@@ -1,10 +1,10 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Mobile-First & Responsive CSS Design
+   Mobile-First & Responsive CSS Design with High-Legibility & Hover Effects
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -16,14 +16,15 @@
   --color-gold-light: #EADCBF;
   --color-gold-dark: #8C6A1D;
   
-  --color-text: #2D2926;
-  --color-text-muted: #6B6560;
+  --color-text: #22201F;         /* Dark crisp text for maximum legibility */
+  --color-text-muted: #3D3936;   /* Improved contrast muted text */
+  --color-date: #2A2623;         /* Dark, crisp date color */
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', -apple-system, sans-serif;
 
   --shadow-card: 0 15px 40px rgba(55, 45, 30, 0.1);
-  --border-gold: 1px solid rgba(197, 160, 89, 0.3);
+  --border-gold: 1px solid rgba(197, 160, 89, 0.35);
 }
 
 /* --- Global Reset & Mobile Viewport Protection --- */
@@ -72,9 +73,9 @@ body::before {
 .page-header-title {
   font-family: var(--font-serif);
   font-size: 2.5rem;
-  font-weight: 300;
+  font-weight: 400;
   letter-spacing: 0.12em;
-  color: var(--color-text-muted);
+  color: var(--color-text);
   text-align: center;
   margin-bottom: 25px;
   position: relative;
@@ -131,76 +132,82 @@ body::before {
   pointer-events: none;
 }
 
-/* Floral Graphics (Contained to prevent horizontal scroll) */
+/* --------------------------------------------------------------------------
+   FLORAL GRAPHICS — ALWAYS BEHIND ALL TEXT (z-index: 1)
+   -------------------------------------------------------------------------- */
 .flower-decor {
   position: absolute;
   pointer-events: none;
-  z-index: 3;
-  max-width: 50vw;
+  z-index: 1; /* Always behind text elements so "LA" and titles are never covered */
+  max-width: 45vw;
 }
 
 .flower-panel1-top {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   top: -35px;
-  right: -45px;
+  right: -55px;
   transform: rotate(20deg);
-  opacity: 0.9;
+  opacity: 0.75;
 }
 
 .flower-panel1-mid {
-  width: 210px;
-  height: 210px;
+  width: 200px;
+  height: 200px;
   top: 250px;
-  left: -70px;
+  left: -75px;
   transform: rotate(-25deg);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .flower-panel2-top {
-  width: 200px;
-  height: 200px;
+  width: 190px;
+  height: 190px;
   top: -35px;
-  right: -45px;
+  right: -55px;
   transform: rotate(40deg);
-  opacity: 0.85;
+  opacity: 0.75;
 }
 
 .flower-panel2-mid {
-  width: 180px;
-  height: 180px;
+  width: 170px;
+  height: 170px;
   top: 450px;
-  left: -50px;
+  left: -55px;
   transform: rotate(-15deg);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
-/* Section Containers inside Panels */
+/* Section Containers inside Panels — ABOVE FLOWERS (z-index: 5) */
 .section {
   padding: 35px 22px;
   text-align: center;
   position: relative;
-  z-index: 4;
+  z-index: 5; /* Text always stays above flower background */
 }
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 1.95rem;
-  font-weight: 400;
+  font-size: 2rem;
+  font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text);
   margin-bottom: 8px;
+  position: relative;
+  z-index: 6; /* Ensures words like "LA" are 100% visible */
 }
 
 .section-subtitle {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 300;
+  font-size: 0.85rem;
+  font-weight: 400;
   color: var(--color-text-muted);
   line-height: 1.6;
-  max-width: 300px;
+  max-width: 310px;
   margin: 0 auto 22px auto;
+  position: relative;
+  z-index: 6;
 }
 
 .gold-divider {
@@ -208,6 +215,8 @@ body::before {
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
   margin: 12px auto 18px auto;
+  position: relative;
+  z-index: 6;
 }
 
 
@@ -220,20 +229,26 @@ body::before {
   padding: 40px 20px 20px 20px;
   text-align: center;
   position: relative;
+  z-index: 5;
 }
 
+/* Darker, highly readable Date */
 .hero-date {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
+  font-size: 1.35rem;
+  font-weight: 600;
   letter-spacing: 0.28em;
-  color: var(--color-text-muted);
+  color: var(--color-date);
   margin-bottom: 25px;
+  position: relative;
+  z-index: 6;
 }
 
 /* Couple Names with Large Ampersand Overlay */
 .names-wrap {
   position: relative;
   margin: 10px 0 15px 0;
+  z-index: 6;
 }
 
 .ampersand-bg {
@@ -254,8 +269,8 @@ body::before {
 
 .name-line {
   font-family: var(--font-serif);
-  font-size: 3rem;
-  font-weight: 400;
+  font-size: 3.1rem;
+  font-weight: 500;
   letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.15;
@@ -263,16 +278,18 @@ body::before {
 
 .wedding-day-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
   letter-spacing: 0.16em;
   color: var(--color-text-muted);
   margin-top: 12px;
   font-style: italic;
+  position: relative;
+  z-index: 6;
 }
 
 /* --------------------------------------------------------------------------
-   MUSIC BUTTON — EXACT REPLICATE OF media_1788892708271.png
+   MUSIC BUTTON — EXACT REPLICATE OF media_1788892708271.png WITH HOVER EFFECT
    -------------------------------------------------------------------------- */
 .music-btn-container {
   display: flex;
@@ -280,7 +297,7 @@ body::before {
   padding-right: 20px;
   margin: 20px 0 10px 0;
   position: relative;
-  z-index: 5;
+  z-index: 7;
 }
 
 .music-btn {
@@ -292,9 +309,16 @@ body::before {
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   outline: none;
   -webkit-tap-highlight-color: transparent;
+}
+
+.music-btn:hover {
+  background-color: #FFFFFF;
+  border-color: #8C6A1D;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.25);
 }
 
 .music-btn:active {
@@ -313,15 +337,21 @@ body::before {
   font-size: 1rem;
   background-color: #FAF6EE;
   flex-shrink: 0;
+  transition: all 0.35s ease;
+}
+
+.music-btn:hover .music-icon-circle {
+  background-color: #FFFDF9;
+  transform: rotate(12deg);
 }
 
 .music-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 400;
+  font-size: 0.74rem;
+  font-weight: 500;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #33302E;
+  color: #2D2926;
   margin-left: 10px;
   white-space: nowrap;
 }
@@ -345,25 +375,31 @@ body::before {
   width: 44px;
   height: 35px;
   margin: 0 auto 12px auto;
+  position: relative;
+  z-index: 6;
 }
 
 .welcome-title {
   font-family: var(--font-serif);
-  font-size: 1.65rem;
+  font-size: 1.7rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text);
   margin-bottom: 12px;
-  font-weight: 400;
+  font-weight: 500;
+  position: relative;
+  z-index: 6;
 }
 
 .welcome-paragraph {
   font-family: var(--font-sans);
-  font-size: 0.84rem;
-  font-weight: 300;
+  font-size: 0.88rem;
+  font-weight: 400;
   color: var(--color-text-muted);
-  line-height: 1.75;
+  line-height: 1.8;
   margin-bottom: 14px;
+  position: relative;
+  z-index: 6;
 }
 
 /* Photo Frame Lorraine */
@@ -376,6 +412,14 @@ body::before {
   border-radius: 12px;
   box-shadow: 0 8px 25px rgba(70, 50, 20, 0.08);
   border: 1px solid rgba(197, 160, 89, 0.35);
+  position: relative;
+  z-index: 6;
+  transition: all 0.4s ease;
+}
+
+.photo-frame-wrap:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(197, 160, 89, 0.2);
 }
 
 .photo-frame-inner {
@@ -398,6 +442,8 @@ body::before {
   height: 38px;
   margin: 18px auto 0 auto;
   opacity: 0.85;
+  position: relative;
+  z-index: 6;
 }
 
 /* Footer Monogram */
@@ -405,14 +451,17 @@ body::before {
   padding: 18px;
   text-align: center;
   margin-top: auto;
+  position: relative;
+  z-index: 6;
 }
 
 .footer-signature {
   font-family: var(--font-serif);
-  font-size: 1.35rem;
+  font-size: 1.4rem;
   letter-spacing: 0.2em;
   color: var(--color-text);
   font-style: italic;
+  font-weight: 500;
 }
 
 
@@ -430,6 +479,8 @@ body::before {
 .venue-title-wrap {
   padding: 0 20px;
   margin-bottom: 18px;
+  position: relative;
+  z-index: 6;
 }
 
 .venue-image-wrapper {
@@ -438,6 +489,7 @@ body::before {
   height: 230px;
   overflow: hidden;
   margin-bottom: 28px;
+  z-index: 6;
 }
 
 .venue-image {
@@ -446,6 +498,11 @@ body::before {
   object-fit: cover;
   filter: sepia(0.18) contrast(1.05) brightness(0.95);
   display: block;
+  transition: transform 0.6s ease;
+}
+
+.venue-image-wrapper:hover .venue-image {
+  transform: scale(1.03);
 }
 
 /* Arched Bottom Cut on Venue Image */
@@ -460,58 +517,95 @@ body::before {
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
-/* Floating Round Map Button */
+/* --------------------------------------------------------------------------
+   FLOATING ROUND MAP BUTTON ("OUVRIR LA CARTE") — ELEGANT HOVER EFFECT
+   -------------------------------------------------------------------------- */
 .open-map-btn-container {
   position: absolute;
   bottom: -5px;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 5;
+  z-index: 7;
 }
 
 .open-map-btn {
-  width: 78px;
-  height: 78px;
+  width: 82px;
+  height: 82px;
   border-radius: 50%;
   background: #FAF6EE;
-  border: 1px solid #C5A059;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  border: 1.5px solid #C5A059;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.open-map-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.open-map-btn:hover {
+  transform: translateX(-50%) scale(1.08);
+  background-color: #FFFFFF;
+  border-color: #8C6A1D;
+  box-shadow: 0 10px 28px rgba(197, 160, 89, 0.35), 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.open-map-btn:hover::before {
+  opacity: 1;
 }
 
 .open-map-btn:active {
-  transform: translateX(-50%) scale(0.95);
+  transform: translateX(-50%) scale(0.96);
 }
 
 .map-pin-svg {
-  width: 17px;
-  height: 17px;
+  width: 19px;
+  height: 19px;
   color: var(--color-gold-dark);
   margin-bottom: 3px;
+  transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.open-map-btn:hover .map-pin-svg {
+  transform: translateY(-3px) scale(1.1);
+  color: #7A5A1B;
 }
 
 .open-map-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
+  font-size: 0.6rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text);
-  font-weight: 500;
+  font-weight: 600;
   text-align: center;
   line-height: 1.1;
+  transition: color 0.35s ease;
+}
+
+.open-map-btn:hover .open-map-btn-text {
+  color: #7A5A1B;
 }
 
 /* Timeline Section (Programme) */
 .timeline-area {
   padding: 35px 20px;
   background-color: var(--bg-card-alt);
+  position: relative;
+  z-index: 5;
 }
 
 .timeline-list {
@@ -519,6 +613,7 @@ body::before {
   max-width: 270px;
   margin: 25px auto 0 auto;
   padding-left: 25px;
+  z-index: 6;
 }
 
 .timeline-vertical-line {
@@ -561,16 +656,16 @@ body::before {
 
 .timeline-hour {
   font-family: var(--font-serif);
-  font-size: 2rem;
-  font-weight: 400;
+  font-size: 2.1rem;
+  font-weight: 500;
   color: var(--color-text);
   min-width: 78px;
 }
 
 .timeline-label {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
-  font-weight: 300;
+  font-size: 0.85rem;
+  font-weight: 400;
   color: var(--color-text-muted);
 }
 
@@ -578,6 +673,8 @@ body::before {
 .dress-code-area {
   padding: 35px 16px 40px 16px;
   background-color: var(--bg-card);
+  position: relative;
+  z-index: 5;
 }
 
 /* Swatches Row matching reference image rectangles */
@@ -588,6 +685,8 @@ body::before {
   width: 100%;
   max-width: 360px;
   margin: 22px auto 10px auto;
+  position: relative;
+  z-index: 6;
 }
 
 .swatch-box {
@@ -595,6 +694,11 @@ body::before {
   flex-direction: column;
   align-items: center;
   gap: 5px;
+  transition: transform 0.3s ease;
+}
+
+.swatch-box:hover {
+  transform: translateY(-3px);
 }
 
 .swatch-rect {
@@ -614,7 +718,8 @@ body::before {
 
 .swatch-title {
   font-family: var(--font-sans);
-  font-size: 0.58rem;
+  font-size: 0.6rem;
+  font-weight: 500;
   color: var(--color-text-muted);
   text-align: center;
   white-space: nowrap;
@@ -625,11 +730,13 @@ body::before {
   width: 100%;
   max-width: 360px;
   margin: 18px auto 0 auto;
+  position: relative;
+  z-index: 6;
 }
 
 .gowns-svg {
   width: 100%;
-  height: auto;
+  height auto;
   display: block;
 }
 
@@ -651,11 +758,11 @@ body::before {
 @media (max-width: 880px) {
   body {
     padding: 0;
-    background-color: var(--bg-card); /* Direct card background for phone edge-to-edge feel */
+    background-color: var(--bg-card);
   }
 
   .page-header-title {
-    display: none; /* Hide header banner on mobile so invitation is immediately visible */
+    display: none;
   }
 
   .main-invitation-container {
@@ -684,10 +791,10 @@ body::before {
     font-size: 7.5rem;
   }
   .swatch-title {
-    font-size: 0.52rem;
+    font-size: 0.54rem;
   }
   .music-btn-text {
-    font-size: 0.65rem;
+    font-size: 0.68rem;
     letter-spacing: 0.16em;
   }
 }
