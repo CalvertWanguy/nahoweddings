@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Mobile-First & Responsive CSS Design with High-Legibility & Hover Effects
+   Mobile-First & Responsive CSS Design with Soft Minimalist Hover Effects
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
@@ -138,7 +138,7 @@ body::before {
 .flower-decor {
   position: absolute;
   pointer-events: none;
-  z-index: 1; /* Always behind text elements so "LA" and titles are never covered */
+  z-index: 1;
   max-width: 45vw;
 }
 
@@ -295,7 +295,7 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   MUSIC BUTTON — EXACT REPLICATE OF media_1788892708271.png WITH HOVER EFFECT
+   MUSIC BUTTON — SUBTLE FLUID HOVER EFFECT
    -------------------------------------------------------------------------- */
 .music-btn-container {
   display: flex;
@@ -314,8 +314,8 @@ body::before {
   padding: 5px 20px 5px 5px;
   border-radius: 50px;
   cursor: pointer;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
-  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.02);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   outline: none;
   -webkit-tap-highlight-color: transparent;
 }
@@ -323,12 +323,12 @@ body::before {
 .music-btn:hover {
   background-color: #FFFFFF;
   border-color: #8C6A1D;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(197, 160, 89, 0.25);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(197, 160, 89, 0.15);
 }
 
 .music-btn:active {
-  transform: scale(0.97);
+  transform: scale(0.98);
 }
 
 .music-icon-circle {
@@ -343,12 +343,11 @@ body::before {
   font-size: 1rem;
   background-color: #FAF6EE;
   flex-shrink: 0;
-  transition: all 0.35s ease;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .music-btn:hover .music-icon-circle {
-  background-color: #FFFDF9;
-  transform: rotate(12deg);
+  background-color: #FFFFFF;
 }
 
 .music-btn-text {
@@ -416,16 +415,16 @@ body::before {
   padding: 6px;
   background: linear-gradient(135deg, #FFFFFF, #F5EFE4);
   border-radius: 12px;
-  box-shadow: 0 8px 25px rgba(70, 50, 20, 0.08);
+  box-shadow: 0 6px 20px rgba(70, 50, 20, 0.06);
   border: 1px solid rgba(197, 160, 89, 0.35);
   position: relative;
   z-index: 6;
-  transition: all 0.4s ease;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .photo-frame-wrap:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(197, 160, 89, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
 }
 
 .photo-frame-inner {
@@ -504,11 +503,6 @@ body::before {
   object-fit: cover;
   filter: sepia(0.18) contrast(1.05) brightness(0.95);
   display: block;
-  transition: transform 0.6s ease;
-}
-
-.venue-image-wrapper:hover .venue-image {
-  transform: scale(1.03);
 }
 
 /* Arched Bottom Cut on Venue Image */
@@ -523,7 +517,9 @@ body::before {
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
-/* Floating Round Map Button ("OUVRIR LA CARTE") */
+/* --------------------------------------------------------------------------
+   FLOATING ROUND MAP BUTTON ("OUVRIR LA CARTE") — SOFT MINIMALIST FLUID HOVER
+   -------------------------------------------------------------------------- */
 .open-map-btn-container {
   position: absolute;
   bottom: -5px;
@@ -537,55 +533,39 @@ body::before {
   height: 82px;
   border-radius: 50%;
   background: #FAF6EE;
-  border: 1.5px solid #C5A059;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border: 1px solid #C5A059;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.06);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
   text-decoration: none;
   -webkit-tap-highlight-color: transparent;
-  position: relative;
-  overflow: hidden;
-}
-
-.open-map-btn::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
 }
 
 .open-map-btn:hover {
-  transform: translateX(-50%) scale(1.08);
+  transform: translateX(-50%) scale(1.03);
   background-color: #FFFFFF;
   border-color: #8C6A1D;
-  box-shadow: 0 10px 28px rgba(197, 160, 89, 0.35), 0 0 15px rgba(212, 175, 55, 0.2);
-}
-
-.open-map-btn:hover::before {
-  opacity: 1;
+  box-shadow: 0 8px 22px rgba(197, 160, 89, 0.18);
 }
 
 .open-map-btn:active {
-  transform: translateX(-50%) scale(0.96);
+  transform: translateX(-50%) scale(0.97);
 }
 
 .map-pin-svg {
-  width: 19px;
-  height: 19px;
+  width: 18px;
+  height: 18px;
   color: var(--color-gold-dark);
   margin-bottom: 3px;
-  transition: transform 0.35s ease, color 0.35s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
 .open-map-btn:hover .map-pin-svg {
-  transform: translateY(-3px) scale(1.1);
-  color: #7A5A1B;
+  transform: translateY(-1px);
 }
 
 .open-map-btn-text {
@@ -597,11 +577,6 @@ body::before {
   font-weight: 600;
   text-align: center;
   line-height: 1.1;
-  transition: color 0.35s ease;
-}
-
-.open-map-btn:hover .open-map-btn-text {
-  color: #7A5A1B;
 }
 
 /* Timeline Section (Programme) */
@@ -702,7 +677,7 @@ body::before {
 }
 
 .swatch-box:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
 }
 
 .swatch-rect {
