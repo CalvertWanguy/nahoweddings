@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Mobile-First & Responsive CSS Design with Top Header Banner Enabled on All Devices
+   Mobile-First & Responsive CSS Design matching media_1788895055630.png layout
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
@@ -69,9 +69,7 @@ body::before {
   z-index: 1;
 }
 
-/* --------------------------------------------------------------------------
-   PAGE HEADER TITLE BANNER — VISIBLE & STYLED ON MOBILE + DESKTOP
-   -------------------------------------------------------------------------- */
+/* Page Header Title Banner (Visible on Desktop & Mobile) */
 .page-header-title {
   font-family: var(--font-serif);
   font-size: 2.5rem;
@@ -248,11 +246,17 @@ body::before {
 }
 
 /* --------------------------------------------------------------------------
-   COUPLE NAMES WITH RICH, FULLY VISIBLE GOLD STYLIZED AMPERSAND "&"
+   EDITORIAL ASYMMETRIC COUPLE NAMES LAYOUT (EXACTLY LIKE media_1788895055630.png)
    -------------------------------------------------------------------------- */
 .names-wrap {
   position: relative;
-  margin: 10px 0 15px 0;
+  margin: 15px auto 20px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
   z-index: 6;
 }
 
@@ -262,16 +266,16 @@ body::before {
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: var(--font-serif);
-  font-size: 8.8rem;
+  font-size: 6.5rem;            /* Reduced size matching reference image */
   font-weight: 400;
   font-style: italic;
-  color: #C5A059;               /* Rich solid gold */
-  opacity: 1.0;                 /* 100% full opacity visibility */
+  color: #C5A059;               /* Solid gold */
+  opacity: 1.0;                 /* 100% full opacity */
   line-height: 1;
   pointer-events: none;
   user-select: none;
   z-index: 1;
-  filter: drop-shadow(0 2px 8px rgba(197, 160, 89, 0.25));
+  filter: drop-shadow(0 2px 6px rgba(197, 160, 89, 0.2));
 }
 
 .name-line {
@@ -283,7 +287,18 @@ body::before {
   line-height: 1.15;
   position: relative;
   z-index: 2;
-  text-shadow: 0 0 12px rgba(250, 246, 238, 0.9), 0 0 4px rgba(250, 246, 238, 0.9);
+  text-shadow: 0 0 10px rgba(250, 246, 238, 0.95);
+}
+
+/* Subtle, perfectly balanced offsets matching media_1788895055630.png */
+.name-left {
+  align-self: center;
+  transform: translateX(-18px);
+}
+
+.name-right {
+  align-self: center;
+  transform: translateX(18px);
 }
 
 .wedding-day-subtitle {
@@ -292,7 +307,7 @@ body::before {
   font-weight: 400;
   letter-spacing: 0.16em;
   color: var(--color-text-muted);
-  margin-top: 12px;
+  margin-top: 15px;
   font-style: italic;
   position: relative;
   z-index: 6;
@@ -744,7 +759,6 @@ body::before {
     background-color: var(--bg-card);
   }
 
-  /* Display top title banner elegantly on mobile */
   .page-header-title {
     display: block;
     font-size: 1.85rem;
@@ -780,7 +794,13 @@ body::before {
     font-size: 2.6rem;
   }
   .ampersand-bg {
-    font-size: 7.2rem;
+    font-size: 5.5rem;
+  }
+  .name-left {
+    transform: translateX(-12px);
+  }
+  .name-right {
+    transform: translateX(12px);
   }
   .swatch-title {
     font-size: 0.54rem;
