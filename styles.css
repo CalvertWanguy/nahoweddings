@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   Design: Dual-Card Desktop Layout & Mobile Responsive matching reference image
+   Mobile-First & Responsive CSS Design
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
@@ -22,11 +22,11 @@
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Montserrat', -apple-system, sans-serif;
 
-  --shadow-card: 0 20px 50px rgba(55, 45, 30, 0.12);
+  --shadow-card: 0 15px 40px rgba(55, 45, 30, 0.1);
   --border-gold: 1px solid rgba(197, 160, 89, 0.3);
 }
 
-/* --- Global Reset --- */
+/* --- Global Reset & Mobile Viewport Protection --- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -36,6 +36,8 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
@@ -44,13 +46,14 @@ body {
   color: var(--color-text);
   min-height: 100vh;
   margin: 0;
-  padding: 40px 20px;
+  padding: 30px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   position: relative;
   overflow-x: hidden;
+  width: 100%;
 }
 
 /* Subtle luxury paper texture */
@@ -65,74 +68,55 @@ body::before {
   z-index: 1;
 }
 
-/* Overall Header Banner (Like reference title "Wedding Invitation Website") */
+/* Page Header Title (Visible on Desktop, hidden on Mobile) */
 .page-header-title {
   font-family: var(--font-serif);
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 300;
   letter-spacing: 0.12em;
   color: var(--color-text-muted);
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
   position: relative;
   z-index: 2;
 }
 
 .page-header-title span {
   display: block;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-family: var(--font-sans);
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--color-gold-dark);
-  margin-top: 5px;
+  margin-top: 4px;
 }
 
-/* Main Site Container: Dual Cards on Desktop, Stacked on Mobile */
+/* Container: Dual Cards on Desktop, Seamless Vertical Card on Mobile */
 .main-invitation-container {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
-  gap: 30px;
+  gap: 25px;
   width: 100%;
-  max-width: 920px;
+  max-width: 900px;
   position: relative;
   z-index: 2;
 }
 
-/* Individual Card (Screen 1 & Screen 2) */
+/* Individual Panel */
 .invitation-panel {
   flex: 1;
   width: 100%;
-  max-width: 440px;
+  max-width: 430px;
   background-color: var(--bg-card);
   box-shadow: var(--shadow-card);
   border: var(--border-gold);
-  border-radius: 4px;
+  border-radius: 6px;
   position: relative;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-/* On Mobile Screens: Stack Cards Vertically Seamlessly */
-@media (max-width: 880px) {
-  body {
-    padding: 15px 10px;
-  }
-  .page-header-title {
-    display: none; /* Hide header banner on mobile for clean full invitation view */
-  }
-  .main-invitation-container {
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    max-width: 440px;
-  }
-  .invitation-panel {
-    max-width: 100%;
-  }
 }
 
 /* Background Gold Dust */
@@ -140,66 +124,60 @@ body::before {
   position: absolute;
   top: 0; left: 0; width: 100%; height: 100%;
   background-image: 
-    radial-gradient(circle, rgba(197, 160, 89, 0.4) 1px, transparent 1.5px),
-    radial-gradient(circle, rgba(234, 220, 191, 0.6) 1.5px, transparent 2px);
+    radial-gradient(circle, rgba(197, 160, 89, 0.35) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(234, 220, 191, 0.5) 1.5px, transparent 2px);
   background-size: 70px 70px, 110px 110px;
   opacity: 0.3;
   pointer-events: none;
 }
 
-/* Floral Graphics */
+/* Floral Graphics (Contained to prevent horizontal scroll) */
 .flower-decor {
   position: absolute;
   pointer-events: none;
   z-index: 3;
+  max-width: 50vw;
 }
 
 .flower-panel1-top {
-  width: 220px;
-  height: 220px;
-  top: -40px;
-  right: -50px;
+  width: 200px;
+  height: 200px;
+  top: -35px;
+  right: -45px;
   transform: rotate(20deg);
   opacity: 0.9;
 }
 
 .flower-panel1-mid {
-  width: 240px;
-  height: 240px;
-  top: 260px;
-  left: -80px;
+  width: 210px;
+  height: 210px;
+  top: 250px;
+  left: -70px;
   transform: rotate(-25deg);
   opacity: 0.85;
 }
 
 .flower-panel2-top {
-  width: 220px;
-  height: 220px;
-  top: -40px;
-  right: -50px;
+  width: 200px;
+  height: 200px;
+  top: -35px;
+  right: -45px;
   transform: rotate(40deg);
   opacity: 0.85;
 }
 
 .flower-panel2-mid {
-  width: 200px;
-  height: 200px;
-  top: 480px;
-  left: -60px;
+  width: 180px;
+  height: 180px;
+  top: 450px;
+  left: -50px;
   transform: rotate(-15deg);
   opacity: 0.8;
 }
 
-/* Gold Vector Swirl Lines */
-.gold-swirl {
-  position: absolute;
-  pointer-events: none;
-  opacity: 0.35;
-}
-
 /* Section Containers inside Panels */
 .section {
-  padding: 40px 28px;
+  padding: 35px 22px;
   text-align: center;
   position: relative;
   z-index: 4;
@@ -207,12 +185,12 @@ body::before {
 
 .section-title {
   font-family: var(--font-serif);
-  font-size: 2.1rem;
+  font-size: 1.95rem;
   font-weight: 400;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text);
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .section-subtitle {
@@ -222,14 +200,14 @@ body::before {
   color: var(--color-text-muted);
   line-height: 1.6;
   max-width: 300px;
-  margin: 0 auto 25px auto;
+  margin: 0 auto 22px auto;
 }
 
 .gold-divider {
-  width: 50px;
+  width: 45px;
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
-  margin: 15px auto 20px auto;
+  margin: 12px auto 18px auto;
 }
 
 
@@ -239,23 +217,23 @@ body::before {
 
 /* Top Hero Area */
 .hero-area {
-  padding: 45px 25px 25px 25px;
+  padding: 40px 20px 20px 20px;
   text-align: center;
   position: relative;
 }
 
 .hero-date {
   font-family: var(--font-serif);
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   letter-spacing: 0.28em;
   color: var(--color-text-muted);
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 /* Couple Names with Large Ampersand Overlay */
 .names-wrap {
   position: relative;
-  margin: 10px 0 20px 0;
+  margin: 10px 0 15px 0;
 }
 
 .ampersand-bg {
@@ -264,7 +242,7 @@ body::before {
   left: 50%;
   transform: translate(-50%, -55%);
   font-family: var(--font-serif);
-  font-size: 10.5rem;
+  font-size: 9rem;
   font-weight: 300;
   font-style: italic;
   color: var(--color-gold-light);
@@ -276,20 +254,20 @@ body::before {
 
 .name-line {
   font-family: var(--font-serif);
-  font-size: 3.3rem;
+  font-size: 3rem;
   font-weight: 400;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.15;
 }
 
 .wedding-day-subtitle {
   font-family: var(--font-serif);
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 300;
   letter-spacing: 0.16em;
   color: var(--color-text-muted);
-  margin-top: 15px;
+  margin-top: 12px;
   font-style: italic;
 }
 
@@ -299,8 +277,8 @@ body::before {
 .music-btn-container {
   display: flex;
   justify-content: flex-end;
-  padding-right: 25px;
-  margin: 25px 0 15px 0;
+  padding-right: 20px;
+  margin: 20px 0 10px 0;
   position: relative;
   z-index: 5;
 }
@@ -310,49 +288,48 @@ body::before {
   align-items: center;
   background-color: #FAF6EE;
   border: 1px solid #C5A059;
-  padding: 5px 22px 5px 6px;
+  padding: 5px 20px 5px 5px;
   border-radius: 50px;
   cursor: pointer;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.music-btn:hover {
-  background-color: #FFFFFF;
-  border-color: #8C6A1D;
-  transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(197, 160, 89, 0.2);
+.music-btn:active {
+  transform: scale(0.97);
 }
 
 .music-icon-circle {
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   border: 1px solid #C5A059;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #8C6A1D;
-  font-size: 1.05rem;
+  font-size: 1rem;
   background-color: #FAF6EE;
   flex-shrink: 0;
 }
 
 .music-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.76rem;
+  font-size: 0.72rem;
   font-weight: 400;
-  letter-spacing: 0.22em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: #33302E;
-  margin-left: 12px;
+  margin-left: 10px;
+  white-space: nowrap;
 }
 
 /* Ribbon Divider */
 .ribbon-divider {
   width: 100%;
-  height: 80px;
+  height: 70px;
   margin: -10px 0;
   position: relative;
   z-index: 4;
@@ -361,43 +338,43 @@ body::before {
 
 /* Welcome Announcement Section */
 .welcome-area {
-  padding: 35px 28px 45px 28px;
+  padding: 30px 22px 40px 22px;
 }
 
 .rings-icon-wrap {
-  width: 48px;
-  height: 38px;
-  margin: 0 auto 15px auto;
+  width: 44px;
+  height: 35px;
+  margin: 0 auto 12px auto;
 }
 
 .welcome-title {
   font-family: var(--font-serif);
-  font-size: 1.75rem;
-  letter-spacing: 0.12em;
+  font-size: 1.65rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--color-text);
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   font-weight: 400;
 }
 
 .welcome-paragraph {
   font-family: var(--font-sans);
-  font-size: 0.86rem;
+  font-size: 0.84rem;
   font-weight: 300;
   color: var(--color-text-muted);
-  line-height: 1.8;
-  margin-bottom: 16px;
+  line-height: 1.75;
+  margin-bottom: 14px;
 }
 
 /* Photo Frame Lorraine */
 .photo-frame-wrap {
-  margin: 25px auto;
+  margin: 22px auto;
   width: 100%;
-  max-width: 300px;
-  padding: 7px;
+  max-width: 290px;
+  padding: 6px;
   background: linear-gradient(135deg, #FFFFFF, #F5EFE4);
-  border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(70, 50, 20, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(70, 50, 20, 0.08);
   border: 1px solid rgba(197, 160, 89, 0.35);
 }
 
@@ -417,22 +394,22 @@ body::before {
 
 /* Champagne Glasses Icon */
 .champagne-icon-wrap {
-  width: 40px;
-  height: 40px;
-  margin: 20px auto 0 auto;
+  width: 38px;
+  height: 38px;
+  margin: 18px auto 0 auto;
   opacity: 0.85;
 }
 
 /* Footer Monogram */
 .panel-footer {
-  padding: 20px;
+  padding: 18px;
   text-align: center;
   margin-top: auto;
 }
 
 .footer-signature {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   letter-spacing: 0.2em;
   color: var(--color-text);
   font-style: italic;
@@ -445,22 +422,22 @@ body::before {
 
 /* Celebration Venue Section */
 .venue-area {
-  padding: 35px 0 45px 0;
+  padding: 30px 0 40px 0;
   background-color: var(--bg-card);
   position: relative;
 }
 
 .venue-title-wrap {
-  padding: 0 25px;
-  margin-bottom: 20px;
+  padding: 0 20px;
+  margin-bottom: 18px;
 }
 
 .venue-image-wrapper {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 230px;
   overflow: hidden;
-  margin-bottom: 30px;
+  margin-bottom: 28px;
 }
 
 .venue-image {
@@ -478,7 +455,7 @@ body::before {
   bottom: -2px;
   left: 0;
   width: 100%;
-  height: 30px;
+  height: 28px;
   background: var(--bg-card);
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
@@ -493,12 +470,12 @@ body::before {
 }
 
 .open-map-btn {
-  width: 82px;
-  height: 82px;
+  width: 78px;
+  height: 78px;
   border-radius: 50%;
   background: #FAF6EE;
   border: 1px solid #C5A059;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -506,25 +483,23 @@ body::before {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.open-map-btn:hover {
-  transform: scale(1.06);
-  background: #FFFFFF;
-  border-color: #8C6A1D;
-  box-shadow: 0 10px 25px rgba(197, 160, 89, 0.25);
+.open-map-btn:active {
+  transform: translateX(-50%) scale(0.95);
 }
 
 .map-pin-svg {
-  width: 18px;
-  height: 18px;
+  width: 17px;
+  height: 17px;
   color: var(--color-gold-dark);
   margin-bottom: 3px;
 }
 
 .open-map-btn-text {
   font-family: var(--font-sans);
-  font-size: 0.6rem;
+  font-size: 0.58rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--color-text);
@@ -535,22 +510,22 @@ body::before {
 
 /* Timeline Section (Programme) */
 .timeline-area {
-  padding: 40px 25px;
+  padding: 35px 20px;
   background-color: var(--bg-card-alt);
 }
 
 .timeline-list {
   position: relative;
-  max-width: 290px;
-  margin: 30px auto 0 auto;
-  padding-left: 28px;
+  max-width: 270px;
+  margin: 25px auto 0 auto;
+  padding-left: 25px;
 }
 
 .timeline-vertical-line {
   position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 9px;
+  top: 10px;
+  bottom: 10px;
+  left: 8px;
   width: 1px;
   background: linear-gradient(180deg, var(--color-gold-light), var(--color-gold), var(--color-gold-light));
 }
@@ -559,7 +534,7 @@ body::before {
   position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 35px;
+  margin-bottom: 30px;
 }
 
 .timeline-row:last-child {
@@ -568,9 +543,9 @@ body::before {
 
 .timeline-bullet {
   position: absolute;
-  left: -24px;
-  width: 10px;
-  height: 10px;
+  left: -22px;
+  width: 9px;
+  height: 9px;
   border-radius: 50%;
   background-color: var(--color-gold);
   border: 2px solid var(--bg-card-alt);
@@ -580,28 +555,28 @@ body::before {
 .timeline-row-content {
   display: flex;
   align-items: baseline;
-  gap: 18px;
+  gap: 16px;
   text-align: left;
 }
 
 .timeline-hour {
   font-family: var(--font-serif);
-  font-size: 2.1rem;
+  font-size: 2rem;
   font-weight: 400;
   color: var(--color-text);
-  min-width: 85px;
+  min-width: 78px;
 }
 
 .timeline-label {
   font-family: var(--font-sans);
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   font-weight: 300;
   color: var(--color-text-muted);
 }
 
 /* Dress Code Section */
 .dress-code-area {
-  padding: 40px 20px 45px 20px;
+  padding: 35px 16px 40px 16px;
   background-color: var(--bg-card);
 }
 
@@ -609,23 +584,24 @@ body::before {
 .swatches-row {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
-  gap: 6px;
+  gap: 5px;
+  width: 100%;
   max-width: 360px;
-  margin: 25px auto 12px auto;
+  margin: 22px auto 10px auto;
 }
 
 .swatch-box {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
 
 .swatch-rect {
   width: 100%;
   aspect-ratio: 1/1;
   border-radius: 3px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
   border: 1px solid rgba(0,0,0,0.04);
 }
 
@@ -638,16 +614,17 @@ body::before {
 
 .swatch-title {
   font-family: var(--font-sans);
-  font-size: 0.62rem;
+  font-size: 0.58rem;
   color: var(--color-text-muted);
   text-align: center;
+  white-space: nowrap;
 }
 
 /* Gowns Silhouettes Graphic */
 .gowns-graphic-container {
   width: 100%;
   max-width: 360px;
-  margin: 20px auto 0 auto;
+  margin: 18px auto 0 auto;
 }
 
 .gowns-svg {
@@ -659,11 +636,58 @@ body::before {
 /* Reveal Animations */
 .reveal {
   opacity: 0;
-  transform: translateY(25px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .reveal.active {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* ==========================================================================
+   OPTIMISATIONS SPÉCIFIQUES SMARTPHONE & ÉCRANS MOBILES (< 880px)
+   ========================================================================== */
+@media (max-width: 880px) {
+  body {
+    padding: 0;
+    background-color: var(--bg-card); /* Direct card background for phone edge-to-edge feel */
+  }
+
+  .page-header-title {
+    display: none; /* Hide header banner on mobile so invitation is immediately visible */
+  }
+
+  .main-invitation-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .invitation-panel {
+    max-width: 100%;
+    border-radius: 0;
+    border-left: none;
+    border-right: none;
+    box-shadow: none;
+  }
+}
+
+/* Fits small phones (< 370px width like iPhone SE / older devices) */
+@media (max-width: 370px) {
+  .name-line {
+    font-size: 2.6rem;
+  }
+  .ampersand-bg {
+    font-size: 7.5rem;
+  }
+  .swatch-title {
+    font-size: 0.52rem;
+  }
+  .music-btn-text {
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+  }
 }
