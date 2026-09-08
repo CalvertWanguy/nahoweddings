@@ -4,7 +4,7 @@
    ========================================================================== */
 
 /* --- Google Fonts Import --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap');
 
 /* --- CSS Variables --- */
 :root {
@@ -13,7 +13,7 @@
   --bg-card-alt: #F5EFE4;
 
   --color-gold: #C5A059;
-  --color-gold-light: #EADCBF;
+  --color-gold-light: #E8D5B7;
   --color-gold-dark: #8C6A1D;
   
   --color-text: #22201F;         /* Dark crisp text for maximum legibility */
@@ -183,7 +183,7 @@ body::before {
   padding: 35px 22px;
   text-align: center;
   position: relative;
-  z-index: 5; /* Text always stays above flower background */
+  z-index: 5;
 }
 
 .section-title {
@@ -195,7 +195,7 @@ body::before {
   color: var(--color-text);
   margin-bottom: 8px;
   position: relative;
-  z-index: 6; /* Ensures words like "LA" are 100% visible */
+  z-index: 6;
 }
 
 .section-subtitle {
@@ -244,7 +244,9 @@ body::before {
   z-index: 6;
 }
 
-/* Couple Names with Large Ampersand Overlay */
+/* --------------------------------------------------------------------------
+   COUPLE NAMES WITH STYLIZED AMPERSAND "&" MATCHING media_1788893448462.png
+   -------------------------------------------------------------------------- */
 .names-wrap {
   position: relative;
   margin: 10px 0 15px 0;
@@ -253,18 +255,20 @@ body::before {
 
 .ampersand-bg {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
-  transform: translate(-50%, -55%);
+  transform: translate(-50%, -50%);
   font-family: var(--font-serif);
-  font-size: 9rem;
+  font-size: 8.5rem;
   font-weight: 300;
   font-style: italic;
-  color: var(--color-gold-light);
-  opacity: 0.45;
+  color: #E2CFB4;
+  opacity: 0.58;
   line-height: 1;
   pointer-events: none;
   user-select: none;
+  z-index: 1;
+  text-shadow: 0 0 20px rgba(250, 246, 238, 0.8);
 }
 
 .name-line {
@@ -274,6 +278,8 @@ body::before {
   letter-spacing: 0.04em;
   color: var(--color-text);
   line-height: 1.15;
+  position: relative;
+  z-index: 2;
 }
 
 .wedding-day-subtitle {
@@ -517,9 +523,7 @@ body::before {
   border-radius: 50% 50% 0 0 / 100% 100% 0 0;
 }
 
-/* --------------------------------------------------------------------------
-   FLOATING ROUND MAP BUTTON ("OUVRIR LA CARTE") — ELEGANT HOVER EFFECT
-   -------------------------------------------------------------------------- */
+/* Floating Round Map Button ("OUVRIR LA CARTE") */
 .open-map-btn-container {
   position: absolute;
   bottom: -5px;
@@ -736,7 +740,7 @@ body::before {
 
 .gowns-svg {
   width: 100%;
-  height auto;
+  height: auto;
   display: block;
 }
 
@@ -788,7 +792,7 @@ body::before {
     font-size: 2.6rem;
   }
   .ampersand-bg {
-    font-size: 7.5rem;
+    font-size: 7.2rem;
   }
   .swatch-title {
     font-size: 0.54rem;
