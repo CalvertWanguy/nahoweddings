@@ -1,6 +1,6 @@
 /* ==========================================================================
    NAHOMIE & LOVENSKY — ELECTRONIC WEDDING INVITATION
-   JavaScript: Music Player, Web Audio Synth Fallback, Reveal Animations
+   JavaScript: Exclusive MP3 Audio Player ("Christina Perri - A Thousand Years") & Reveal Animations
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,96 +29,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   /* ------------------------------------------------------------------------
-     2. AUDIO PLAYER & WEB AUDIO SYNTHESIZER FALLBACK
+     2. LECTEUR AUDIO MP3 EXCLUSIF
+        Musique : Christina Perri - A Thousand Years (Piano/Cello Cover)
      ------------------------------------------------------------------------ */
   const musicBtn = document.getElementById('musicBtn');
   const musicBtnText = musicBtn ? musicBtn.querySelector('.music-btn-text') : null;
   const bgAudio = document.getElementById('bgAudio');
 
   let isPlaying = false;
-  let audioCtx = null;
-  let synthInterval = null;
 
-  // Web Audio Synthesizer for ambient music
-  function playAmbientSynthesizer() {
-    if (!audioCtx) {
-      const AudioContext = window.AudioContext || window.webkitAudioContext;
-      audioCtx = new AudioContext();
-    }
-    if (audioCtx.state === 'suspended') {
-      audioCtx.resume();
-    }
-
-    const notes = [261.63, 329.63, 392.00, 440.00, 523.25, 659.25];
-
-    function triggerNote() {
-      if (!isPlaying || !audioCtx) return;
-      const freq = notes[Math.floor(Math.random() * notes.length)];
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0, audioCtx.currentTime);
-      gain.gain.linearRampToValueAtTime(0.04, audioCtx.currentTime + 1.2);
-      gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 4.5);
-
-      osc.connect(gain);
-      gain.connect(audioCtx.destination);
-
-      osc.start();
-      osc.stop(audioCtx.currentTime + 4.6);
-    }
-
-    triggerNote();
-    synthInterval = setInterval(triggerNote, 2200);
-  }
-
-  function stopAmbientSynthesizer() {
-    if (synthInterval) {
-      clearInterval(synthInterval);
-      synthInterval = null;
-    }
-    if (audioCtx && audioCtx.state === 'running') {
-      audioCtx.suspend();
-    }
-  }
-
-  if (musicBtn) {
+  if (musicBtn && bgAudio) {
     musicBtn.addEventListener('click', () => {
       if (!isPlaying) {
-        if (bgAudio && bgAudio.src && bgAudio.src.length > 0) {
-          bgAudio.play().then(() => {
-            isPlaying = true;
-            updateBtnState(true);
-          }).catch(() => {
-            isPlaying = true;
-            playAmbientSynthesizer();
-            updateBtnState(true);
-          });
-        } else {
+        bgAudio.play().then(() => {
           isPlaying = true;
-          playAmbientSynthesizer();
-          updateBtnState(true);
-        }
+          musicBtn.classList.add('playing');
+          if (musicBtnText) musicBtnText.textContent = 'PAUSE';
+        }).catch(err => {
+          console.error("Erreur lors de la lecture du fichier MP3:", err);
+        });
       } else {
+        bgAudio.pause();
         isPlaying = false;
-        if (bgAudio) bgAudio.pause();
-        stopAmbientSynthesizer();
-        updateBtnState(false);
+        musicBtn.classList.remove('playing');
+        if (musicBtnText) musicBtnText.textContent = 'JOUER LA MUSIQUE';
       }
     });
-  }
-
-  function updateBtnState(playing) {
-    if (playing) {
-      musicBtn.classList.add('playing');
-      if (musicBtnText) musicBtnText.textContent = 'PAUSE';
-    } else {
-      musicBtn.classList.remove('playing');
-      if (musicBtnText) musicBtnText.textContent = 'JOUER LA MUSIQUE';
-    }
   }
 
 });
